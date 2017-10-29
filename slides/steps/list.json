@@ -1,0 +1,660 @@
+[
+    {
+        "uri": "start.html",
+        "id": "title",
+        "class": "step title",
+        "data": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "scale": 4,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "thinkbig-consultant.html",
+        "id": "thinkbig-consultant",
+        "class": "step",
+        "data": {
+            "x": 4000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "thinkbig-opensource.html",
+        "id": "thinkbig-opensource",
+        "class": "step",
+        "data": {
+            "x": 3700,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "thinkbig-expanding.html",
+        "id": "thinkbig-expanding",
+        "class": "step",
+        "data": {
+            "x": 3300,
+            "y": 0,
+            "z": 0,
+            "scale": 4,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "agenda.html",
+        "id": "agenda",
+        "class": "step",
+        "data": {
+            "x": 7000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "flow-ingest.html",
+        "id": "flow-ingest",
+        "class": "step",
+        "data": {
+            "x": 3800,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "flow-analyze.html",
+        "id": "flow-analyze",
+        "class": "step",
+        "data": {
+            "x": 3800,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "flow-visualize.html",
+        "id": "flow-visualize",
+        "class": "step",
+        "data": {
+            "x": 3800,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "flow-insight.html",
+        "id": "flow-insight",
+        "class": "step",
+        "data": {
+            "x": 3800,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "flow-water-drop.html",
+        "id": "flow-water-drop",
+        "class": "step",
+        "data": {
+            "x": 3800,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "flow-technology.html",
+        "id": "flow-technology",
+        "class": "step",
+        "data": {
+            "x": 3800,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "whatisbigdata.html",
+        "id": "whatisbigdata",
+        "class": "step",
+        "data": {
+            "x": 10000,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "bigdata.html",
+        "id": "bigdata",
+        "class": "step bulletin",
+        "data": {
+            "x": 1500,
+            "y": 0,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "bigdata-buzzword.html",
+        "id": "bigdata-buzzword",
+        "class": "step bulletin",
+        "data": {
+            "x": 1500,
+            "y": -1500,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 180
+        }
+    },
+    {
+        "uri": "bigdata-definition.html",
+        "id": "bigdata-definition",
+        "class": "step bulletin",
+        "data": {
+            "x": 1500,
+            "y": -1650,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 180
+        }
+    },
+    {
+        "uri": "bigdata-how.html",
+        "id": "bigdata-how",
+        "class": "step bulletin",
+        "data": {
+            "x": 4800,
+            "y": 1000,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "bigdata-distribute.html",
+        "id": "bigdata-distribute",
+        "class": "step bulletin",
+        "data": {
+            "x": 4800,
+            "y": 1200,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "bigdata-distribute-everything.html",
+        "id": "bigdata-distribute-everything",
+        "class": "step bulletin",
+        "data": {
+            "x": 4800,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "google-papers.html",
+        "id": "google-papers",
+        "class": "step",
+        "data": {
+            "x": 5800,
+            "y": 6400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 90,
+            "rotate-y": 90,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "distribute-storage.html",
+        "id": "distribute-storage",
+        "class": "step",
+        "data": {
+            "x": 6800,
+            "y": 1400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "distribute-processing.html",
+        "id": "distribute-processing",
+        "class": "step",
+        "data": {
+            "x": 6805,
+            "y": 1410,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "mapreduce-flow.html",
+        "id": "mapreduce-flow",
+        "class": "step",
+        "data": {
+            "x": 7800,
+            "y": 7400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "bigdata-solution.html",
+        "id": "bigdata-solution",
+        "class": "step bulletin",
+        "data": {
+            "x": 5800,
+            "y": 6400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "what-makes-spark-fast.html",
+        "id": "what-makes-spark-fast",
+        "class": "step",
+        "data": {
+            "x": 5800,
+            "y": 6400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 90,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "spark-flow.html",
+        "id": "spark-flow",
+        "class": "step",
+        "data": {
+            "x": 7800,
+            "y": 7400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 90,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "spark-stages.html",
+        "id": "spark-stages",
+        "class": "step",
+        "data": {
+            "x": 7800,
+            "y": 6400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "spark-lazy-evaluation.html",
+        "id": "spark-lazy-evaluation",
+        "class": "step",
+        "data": {
+            "x": 9800,
+            "y": 9400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "spark-catalyst-optimizer.html",
+        "id": "spark-catalyst-optimizer",
+        "class": "step",
+        "data": {
+            "x": 9800,
+            "y": 9400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 90,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "spark-tungsten.html",
+        "id": "spark-tungsten",
+        "class": "step",
+        "data": {
+            "x": 13000,
+            "y": 9400,
+            "z": 10000,
+            "scale": 8,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "spark-hello-world.html",
+        "id": "spark-hello-world",
+        "class": "step",
+        "data": {
+            "x": 16000,
+            "y": 9400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "load-source.html",
+        "id": "load-source",
+        "class": "step",
+        "data": {
+            "x": 19000,
+            "y": 9400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "map.html",
+        "id": "map",
+        "class": "step",
+        "data": {
+            "x": 22000,
+            "y": 9400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "reduce.html",
+        "id": "reduce",
+        "class": "step",
+        "data": {
+            "x": 25000,
+            "y": 9400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "nothing-happened.html",
+        "id": "nothing-happened",
+        "class": "step in-3d",
+        "data": {
+            "x": 13500,
+            "y": 2400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 90,
+            "rotate-z": 0
+        }
+    },
+    {
+        "uri": "nothing-happen-yet.html",
+        "id": "nothing-happen-yet",
+        "class": "step in-3d",
+        "data": {
+            "x": 13500,
+            "y": 2400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 90,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "transformation-and-actions.html",
+        "id": "transformation-and-actions",
+        "class": "step",
+        "data": {
+            "x": 13500,
+            "y": 2400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "lets-action.html",
+        "id": "lets-action",
+        "class": "step",
+        "data": {
+            "x": 15000,
+            "y": 3400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "job-graph.html",
+        "id": "job-graph",
+        "class": "step",
+        "data": {
+            "x": 16500,
+            "y": 2400,
+            "z": 0,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "spark-word-count.html",
+        "id": "spark-word-count",
+        "class": "step",
+        "data": {
+            "x": 32600,
+            "y": 6400,
+            "z": 60000,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "mapreduce-word-count.html",
+        "id": "mapreduce-word-count",
+        "class": "step",
+        "data": {
+            "x": 32600,
+            "y": 6400,
+            "z": 60000,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 90,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "analytics-demo.html",
+        "id": "analytics-demo",
+        "class": "step",
+        "data": {
+            "x": 36600,
+            "y": 6400,
+            "z": 40000,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "analytics-demo-data-source.html",
+        "id": "analytics-demo-data-source",
+        "class": "step",
+        "data": {
+            "x": 39600,
+            "y": 6400,
+            "z": 40000,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "swedish-traffic-data.html",
+        "id": "swedish-traffic-data",
+        "class": "step",
+        "data": {
+            "x": 43000,
+            "y": 6400,
+            "z": 40000,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "summary.html",
+        "id": "summary",
+        "class": "step",
+        "data": {
+            "x": 46000,
+            "y": 6400,
+            "z": 80000,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "next-talk.html",
+        "id": "next-talk",
+        "class": "step",
+        "data": {
+            "x": 46000,
+            "y": 6400,
+            "z": 80000,
+            "scale": 1,
+            "rotate-x": 90,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "pizza-beer.html",
+        "id": "pizza-beer",
+        "class": "step",
+        "data": {
+            "x": 50000,
+            "y": 9400,
+            "z": 80000,
+            "scale": 20,
+            "rotate-x": 90,
+            "rotate-y": 90,
+            "rotate-z": 90
+        }
+    },
+    {
+        "uri": "sandbox.html",
+        "id": "sandbox",
+        "class": "step",
+        "data": {
+            "x": 50000,
+            "y": 6400,
+            "z": 80000,
+            "scale": 1,
+            "rotate-x": 0,
+            "rotate-y": 0,
+            "rotate-z": 90
+        }
+    }
+]

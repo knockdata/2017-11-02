@@ -1,0 +1,1066 @@
+{
+  "paragraphs": [
+    {
+      "text": "import org.apache.spark.sql.functions._\nimport com.knockdata.spark.highcharts._\nimport com.knockdata.spark.highcharts.model._\nspark.version",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 8:15:11 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nimport org.apache.spark.sql.functions._\n\nimport com.knockdata.spark.highcharts._\n\nimport com.knockdata.spark.highcharts.model._\n\nres11: String \u003d 2.1.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509269026193_1177441729",
+      "id": "20171029-092346_1773179206",
+      "dateCreated": "Oct 29, 2017 9:23:46 AM",
+      "dateStarted": "Oct 30, 2017 8:15:11 AM",
+      "dateFinished": "Oct 30, 2017 8:15:11 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\nls -alh /data\nrm -rf /data/sfpd.parquet",
+      "user": "anonymous",
+      "dateUpdated": "Oct 29, 2017 9:37:13 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "LICENSE\nREADME.md\nnews.meta.json.tar.gz\nnote.json\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509179362372_813784491",
+      "id": "20171028-082922_1825454271",
+      "dateCreated": "Oct 28, 2017 8:29:22 AM",
+      "dateStarted": "Oct 28, 2017 8:36:55 AM",
+      "dateFinished": "Oct 28, 2017 8:36:55 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val df \u003d spark.read.option(\"header\", \"true\").csv(\"/data/sfpd.csv.gz\")\ndf.printSchema\ndf.write.parquet(\"/data/sfpd.parquet\")\n",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 8:15:16 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "tableHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\ndf: org.apache.spark.sql.DataFrame \u003d [IncidntNum: string, Category: string ... 11 more fields]\nroot\n |-- IncidntNum: string (nullable \u003d true)\n |-- Category: string (nullable \u003d true)\n |-- Descript: string (nullable \u003d true)\n |-- DayOfWeek: string (nullable \u003d true)\n |-- Date: string (nullable \u003d true)\n |-- Time: string (nullable \u003d true)\n |-- PdDistrict: string (nullable \u003d true)\n |-- Resolution: string (nullable \u003d true)\n |-- Address: string (nullable \u003d true)\n |-- X: string (nullable \u003d true)\n |-- Y: string (nullable \u003d true)\n |-- Location: string (nullable \u003d true)\n |-- PdId: string (nullable \u003d true)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\norg.apache.spark.sql.AnalysisException: path file:/data/sfpd.parquet already exists.;\n  at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:80)\n  at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:58)\n  at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:56)\n  at org.apache.spark.sql.execution.command.ExecutedCommandExec.doExecute(commands.scala:74)\n  at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:114)\n  at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:114)\n  at org.apache.spark.sql.execution.SparkPlan$$anonfun$executeQuery$1.apply(SparkPlan.scala:135)\n  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)\n  at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:132)\n  at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:113)\n  at org.apache.spark.sql.execution.QueryExecution.toRdd$lzycompute(QueryExecution.scala:87)\n  at org.apache.spark.sql.execution.QueryExecution.toRdd(QueryExecution.scala:87)\n  at org.apache.spark.sql.execution.datasources.DataSource.write(DataSource.scala:492)\n  at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:215)\n  at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:198)\n  at org.apache.spark.sql.DataFrameWriter.parquet(DataFrameWriter.scala:494)\n  ... 47 elided\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509179621967_-1855250922",
+      "id": "20171028-083341_1951899916",
+      "dateCreated": "Oct 28, 2017 8:33:41 AM",
+      "dateStarted": "Oct 30, 2017 8:13:13 AM",
+      "dateFinished": "Oct 30, 2017 8:13:16 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val df \u003d spark.read.parquet(\"/data/sfpd.parquet\").cache\ndf.printSchema\ndf.count\ndf.show(2)",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 12:44:12 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\ndf: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [IncidntNum: string, Category: string ... 11 more fields]\nroot\n |-- IncidntNum: string (nullable \u003d true)\n |-- Category: string (nullable \u003d true)\n |-- Descript: string (nullable \u003d true)\n |-- DayOfWeek: string (nullable \u003d true)\n |-- Date: string (nullable \u003d true)\n |-- Time: string (nullable \u003d true)\n |-- PdDistrict: string (nullable \u003d true)\n |-- Resolution: string (nullable \u003d true)\n |-- Address: string (nullable \u003d true)\n |-- X: string (nullable \u003d true)\n |-- Y: string (nullable \u003d true)\n |-- Location: string (nullable \u003d true)\n |-- PdId: string (nullable \u003d true)\n\n\nres150: Long \u003d 2133028\n+----------+------------+--------------------+---------+----------+-----+----------+----------+--------------------+-----------------+----------------+--------------------+--------------+\n|IncidntNum|    Category|            Descript|DayOfWeek|      Date| Time|PdDistrict|Resolution|             Address|                X|               Y|            Location|          PdId|\n+----------+------------+--------------------+---------+----------+-----+----------+----------+--------------------+-----------------+----------------+--------------------+--------------+\n| 150060275|NON-CRIMINAL|       LOST PROPERTY|   Monday|01/19/2015|14:00|   MISSION|      NONE|18TH ST / VALENCI...| -122.42158168137|37.7617007179518|(37.7617007179518...|15006027571000|\n| 150098210|     ROBBERY|ROBBERY, BODILY F...|   Sunday|02/01/2015|15:45|TENDERLOIN|      NONE|300 Block of LEAV...|-122.414406029855|37.7841907151119|(37.7841907151119...|15009821003074|\n+----------+------------+--------------------+---------+----------+-----+----------+----------+--------------------+-----------------+----------------+--------------------+--------------+\nonly showing top 2 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509179851964_534164509",
+      "id": "20171028-083731_1836261891",
+      "dateCreated": "Oct 28, 2017 8:37:31 AM",
+      "dateStarted": "Oct 30, 2017 12:44:12 PM",
+      "dateFinished": "Oct 30, 2017 12:44:12 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "df.select(max($\"X\"), min($\"X\"), max($\"Y\"), min($\"Y\")).show\n",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 1:23:44 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------------+------+------+----------------+\n|          max(X)|min(X)|max(Y)|          min(Y)|\n+----------------+------+------+----------------+\n|-122.51364206429|-120.5|    90|37.7078790224135|\n+----------------+------+------+----------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509369738873_-125756827",
+      "id": "20171030-132218_307582158",
+      "dateCreated": "Oct 30, 2017 1:22:18 PM",
+      "dateStarted": "Oct 30, 2017 1:23:44 PM",
+      "dateFinished": "Oct 30, 2017 1:23:45 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "df.filter($\"Y\" !\u003d\u003d \"90\").orderBy($\"Y\".desc).show",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 1:26:45 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nwarning: there was one deprecation warning; re-run with -deprecation for details\n+----------+---------------+--------------------+---------+----------+-----+----------+--------------+--------------------+-------------------+-----------------+--------------------+--------------+\n|IncidntNum|       Category|            Descript|DayOfWeek|      Date| Time|PdDistrict|    Resolution|             Address|                  X|                Y|            Location|          PdId|\n+----------+---------------+--------------------+---------+----------+-----+----------+--------------+--------------------+-------------------+-----------------+--------------------+--------------+\n| 080319291| OTHER OFFENSES|INTERFERRING WITH...|Wednesday|03/26/2008|18:05|   CENTRAL|          NONE|700 Block of CALI...|  -122.364750704393| 37.8206208380702|(37.8206208380702...| 8031929127080|\n| 120944740|  LARCENY/THEFT|GRAND THEFT FROM ...|Wednesday|11/21/2012|17:50|   CENTRAL|          NONE|700 Block of CALI...|  -122.364750704393| 37.8206208380702|(37.8206208380702...|12094474006244|\n| 160915836|          FRAUD|FRAUDULENT CREDIT...|   Sunday|05/01/2016|00:01|  RICHMOND|          NONE|100 Block of AVEN...|-122.37427517670966|37.81997549229705|(37.8199754922970...|16091583609340|\n| 160476117|SECONDARY CODES|   DOMESTIC VIOLENCE| Saturday|06/11/2016|21:45|  RICHMOND|ARREST, BOOKED|100 Block of AVEN...|-122.37427517670966|37.81997549229705|(37.8199754922970...|16047611715200|\n| 176053218|  LARCENY/THEFT|GRAND THEFT FROM ...| Thursday|02/23/2017|16:05|  RICHMOND|          NONE|100 Block of AVEN...|-122.37427517670966|37.81997549229705|(37.8199754922970...|17605321806244|\n| 160476117|        ASSAULT|BATTERY, FORMER S...| Saturday|06/11/2016|21:45|  RICHMOND|ARREST, BOOKED|100 Block of AVEN...|-122.37427517670966|37.81997549229705|(37.8199754922970...|16047611704138|\n| 170272751| OTHER OFFENSES|FALSE PERSONATION...|  Tuesday|03/14/2017|08:00|  RICHMOND|          NONE|100 Block of AVEN...|-122.37427517670966|37.81997549229705|(37.8199754922970...|17027275109029|\n| 170276010|        ASSAULT|INFLICT INJURY ON...|   Friday|03/31/2017|20:30|  RICHMOND|ARREST, BOOKED|100 Block of AVEN...|-122.37427517670966|37.81997549229705|(37.8199754922970...|17027601015040|\n| 170441520|  LARCENY/THEFT|PETTY THEFT FROM ...| Saturday|05/27/2017|15:00|  RICHMOND|          NONE|100 Block of AVEN...|-122.37427517670966|37.81997549229705|(37.8199754922970...|17044152006242|\n| 170632876| SUSPICIOUS OCC|INVESTIGATIVE DET...|   Friday|08/04/2017|05:40|  RICHMOND|          NONE|100 Block of AVEN...|-122.37427517670966|37.81997549229705|(37.8199754922970...|17063287664085|\n| 160476117| OTHER OFFENSES|INJURY TO TELEGRA...| Saturday|06/11/2016|21:45|  RICHMOND|ARREST, BOOKED|100 Block of AVEN...|-122.37427517670966|37.81997549229705|(37.8199754922970...|16047611726120|\n| 060312215|SECONDARY CODES|   DOMESTIC VIOLENCE|Wednesday|03/08/2006|16:00|  RICHMOND|          NONE|100 Block of AVEN...|   -122.37427517671|  37.819975492297|(37.819975492297,...| 6031221515200|\n| 130257157|       BURGLARY|BURGLARY OF APART...| Thursday|03/28/2013|09:30|  RICHMOND|          NONE|100 Block of AVEN...|   -122.37427517671|  37.819975492297|(37.819975492297,...|13025715705013|\n| 100655531| OTHER OFFENSES|FALSE PERSONATION...|  Tuesday|06/15/2010|12:00|  RICHMOND|          NONE|100 Block of AVEN...|   -122.37427517671|  37.819975492297|(37.819975492297,...|10065553109029|\n| 101088365|   NON-CRIMINAL|DEATH REPORT, CAU...| Saturday|11/20/2010|00:01|  RICHMOND|          NONE|100 Block of AVEN...|   -122.37427517671|  37.819975492297|(37.819975492297,...|10108836561030|\n| 060537156|        ASSAULT|THREATS AGAINST LIFE| Saturday|05/20/2006|21:40|  RICHMOND|          NONE|100 Block of AVEN...|   -122.37427517671|  37.819975492297|(37.819975492297,...| 6053715619057|\n| 050437196|        ASSAULT|THREATS AGAINST LIFE|   Monday|04/04/2005|00:01|  RICHMOND|          NONE|100 Block of AVEN...|   -122.37427517671|  37.819975492297|(37.819975492297,...| 5043719619057|\n| 120365663|          FRAUD|CREDIT CARD, THEF...|  Tuesday|05/08/2012|10:00|  RICHMOND|          NONE|100 Block of AVEN...|   -122.37427517671|  37.819975492297|(37.819975492297,...|12036566309320|\n| 100301126| SUSPICIOUS OCC|SUSPICIOUS OCCURR...|  Tuesday|11/03/2009|15:00|  RICHMOND|          NONE|100 Block of AVEN...|   -122.37427517671|  37.819975492297|(37.819975492297,...|10030112664070|\n| 040443943|  LARCENY/THEFT|GRAND THEFT PICKP...|   Sunday|04/18/2004|11:00|  RICHMOND|          NONE|100 Block of AVEN...|   -122.37427517671|  37.819975492297|(37.819975492297,...| 4044394306112|\n+----------+---------------+--------------------+---------+----------+-----+----------+--------------+--------------------+-------------------+-----------------+--------------------+--------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509369968618_-1226033057",
+      "id": "20171030-132608_655578203",
+      "dateCreated": "Oct 30, 2017 1:26:08 PM",
+      "dateStarted": "Oct 30, 2017 1:26:45 PM",
+      "dateFinished": "Oct 30, 2017 1:26:48 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "df.orderBy($\"Y\".desc).show",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 1:24:45 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+--------------------+--------------------+---------+----------+-----+----------+--------------------+--------------------+------+---+------------+-------------+\n|IncidntNum|            Category|            Descript|DayOfWeek|      Date| Time|PdDistrict|          Resolution|             Address|     X|  Y|    Location|         PdId|\n+----------+--------------------+--------------------+---------+----------+-----+----------+--------------------+--------------------+------+---+------------+-------------+\n| 031080687|        PROSTITUTION|SOLICITS TO VISIT...|   Friday|09/12/2003|23:00|  NORTHERN|       ARREST, CITED|AUSTIN ST / LARKI...|-120.5| 90|(90, -120.5)|3108068713070|\n| 040167303|       VEHICLE THEFT|   STOLEN AUTOMOBILE|  Tuesday|02/10/2004|20:30|  RICHMOND|                NONE|EUCLID AV / AVENU...|-120.5| 90|(90, -120.5)|4016730307021|\n| 051460116|             ASSAULT|AGGRAVATED ASSAUL...|   Friday|12/30/2005|00:34|   BAYVIEW|      ARREST, BOOKED|JAMESLICKFREEWAY ...|-120.5| 90|(90, -120.5)|5146011604014|\n| 050892631|      OTHER OFFENSES|DRIVERS LICENSE, ...|  Tuesday|08/09/2005|23:15|   TARAVAL|       ARREST, CITED|GENEVA AV / INTER...|-120.5| 90|(90, -120.5)|5089263165016|\n| 031147516|       LARCENY/THEFT|PETTY THEFT FROM ...|   Sunday|09/28/2003|10:00|  SOUTHERN|                NONE| 1ST ST / BRANNAN ST|-120.5| 90|(90, -120.5)|3114751606302|\n| 050908404|       VEHICLE THEFT|VEHICLE, RECOVERE...| Saturday|08/13/2005|17:00|TENDERLOIN|                NONE|JENNINGS CT / ING...|-120.5| 90|(90, -120.5)|5090840407041|\n| 051463245|       LARCENY/THEFT|GRAND THEFT FROM ...|   Friday|12/30/2005|17:00|TENDERLOIN|                NONE|5THSTNORTH ST / O...|-120.5| 90|(90, -120.5)|5146324506244|\n| 050978388|      OTHER OFFENSES| PROBATION VIOLATION|  Tuesday|08/30/2005|20:15|TENDERLOIN|      ARREST, BOOKED|MCALLISTER ST / 7...|-120.5| 90|(90, -120.5)|5097838826170|\n| 050978388|       DRUG/NARCOTIC|POSSESSION OF HEROIN|  Tuesday|08/30/2005|20:15|TENDERLOIN|      ARREST, BOOKED|MCALLISTER ST / 7...|-120.5| 90|(90, -120.5)|5097838816100|\n| 051198260|       DRUG/NARCOTIC|POSSESSION OF MAR...|   Monday|10/24/2005|00:03|TENDERLOIN|       ARREST, CITED|OFARRELL ST / 5TH...|-120.5| 90|(90, -120.5)|5119826016010|\n| 040095259|       LARCENY/THEFT|GRAND THEFT PICKP...| Saturday|01/24/2004|14:00|   CENTRAL|                NONE|GREENWICH ST / TH...|-120.5| 90|(90, -120.5)|4009525906112|\n| 051425831|      OTHER OFFENSES|    RESISTING ARREST|  Tuesday|12/20/2005|14:57|TENDERLOIN|      ARREST, BOOKED|7THSTNORTH ST / M...|-120.5| 90|(90, -120.5)|5142583127170|\n| 040182583|             ASSAULT|AGGRAVATED ASSAUL...| Saturday|02/14/2004|21:10|  RICHMOND|                NONE|JOHN F KENNEDY DR...|-120.5| 90|(90, -120.5)|4018258304013|\n| 050967886|        NON-CRIMINAL|AIDED CASE, MENTA...|   Sunday|08/28/2005|16:00|TENDERLOIN|                NONE|EDDY ST / 5THSTNO...|-120.5| 90|(90, -120.5)|5096788664020|\n| 030524729|SEX OFFENSES, FOR...|FORCIBLE RAPE, BO...|   Friday|05/02/2003|01:00|  SOUTHERN|COMPLAINANT REFUS...|3RD ST / JAMES LI...|-120.5| 90|(90, -120.5)|3052472902004|\n| 060239205|       LARCENY/THEFT|GRAND THEFT FROM ...|   Sunday|02/27/2005|11:00|   TARAVAL|                NONE|STELMO WY / MONTE...|-120.5| 90|(90, -120.5)|6023920506224|\n| 040614304|      SUSPICIOUS OCC|SUSPICIOUS OCCURR...|   Friday|05/28/2004|18:15|   BAYVIEW|                NONE|I-280 / CESAR CHA...|-120.5| 90|(90, -120.5)|4061430464070|\n| 030174142|       LARCENY/THEFT|PETTY THEFT FROM ...|Wednesday|02/05/2003|12:00|  SOUTHERN|                NONE|SPEAR ST / THE EM...|-120.5| 90|(90, -120.5)|3017414206242|\n| 040975300|      OTHER OFFENSES|DRIVERS LICENSE, ...| Thursday|08/26/2004|13:35| INGLESIDE|       ARREST, CITED|JAMES LICK FREEWA...|-120.5| 90|(90, -120.5)|4097530065016|\n| 051106661|      OTHER OFFENSES|VIOLATION OF MUNI...| Saturday|10/01/2005|16:18|TENDERLOIN|       ARREST, CITED|7THSTNORTH ST / M...|-120.5| 90|(90, -120.5)|5110666130190|\n+----------+--------------------+--------------------+---------+----------+-----+----------+--------------------+--------------------+------+---+------------+-------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509369564339_592728068",
+      "id": "20171030-131924_467632451",
+      "dateCreated": "Oct 30, 2017 1:19:24 PM",
+      "dateStarted": "Oct 30, 2017 1:24:45 PM",
+      "dateFinished": "Oct 30, 2017 1:24:47 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val format \u003d new java.text.SimpleDateFormat(\"MM/dd/yyyyHH:mm\")\nval d \u003d \"02/01/2015\"\nval t \u003d \"14:00\"\nval date \u003d format.parse(d+t)\nval calendar \u003d Calendar.getInstance\n    calendar.setTime(date)\n     calendar.get(Calendar.DAY_OF_YEAR)",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 12:32:53 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nd: String \u003d 02/01/2015\n\nt: String \u003d 14:00\n\ndate: java.util.Date \u003d Sun Feb 01 14:00:00 UTC 2015\n\ncalendar: java.util.Calendar \u003d java.util.GregorianCalendar[time\u003d1509366481538,areFieldsSet\u003dtrue,areAllFieldsSet\u003dtrue,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Etc/UTC\",offset\u003d0,dstSavings\u003d0,useDaylight\u003dfalse,transitions\u003d0,lastRule\u003dnull],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d1,YEAR\u003d2017,MONTH\u003d9,WEEK_OF_YEAR\u003d44,WEEK_OF_MONTH\u003d5,DAY_OF_MONTH\u003d30,DAY_OF_YEAR\u003d303,DAY_OF_WEEK\u003d2,DAY_OF_WEEK_IN_MONTH\u003d5,AM_PM\u003d1,HOUR\u003d0,HOUR_OF_DAY\u003d12,MINUTE\u003d28,SECOND\u003d1,MILLISECOND\u003d538,ZONE_OFFSET\u003d0,DST_OFFSET\u003d0]\n\nres131: Int \u003d 32\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509366314308_-898420154",
+      "id": "20171030-122514_97728210",
+      "dateCreated": "Oct 30, 2017 12:25:14 PM",
+      "dateStarted": "Oct 30, 2017 12:28:01 PM",
+      "dateFinished": "Oct 30, 2017 12:28:01 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val format \u003d new java.text.SimpleDateFormat(\"MM/dd/yyyyHH:mm\")\nimport java.util.Calendar\n\ncase class RichDate(date: java.sql.Date, monthDay: String, year: Int, month: Int, day: Int, dayOfYear: Int, dayInWeek: Int, hour: Int, minute: Int)\n\nval udfDate \u003d udf[RichDate, String, String]((d,t) \u003d\u003e {\n    val date \u003d format.parse(d+t)\n    val calendar \u003d Calendar.getInstance\n    calendar.setTime(date)\n    \n    RichDate(\n        new java.sql.Date(date.getTime()), \n        d.take(5),\n        calendar.get(Calendar.YEAR), \n        calendar.get(Calendar.MONTH), \n        calendar.get(Calendar.DAY_OF_MONTH), \n        calendar.get(Calendar.DAY_OF_YEAR),\n        calendar.get(Calendar.DAY_OF_WEEK),\n        calendar.get(Calendar.HOUR_OF_DAY),\n        calendar.get(Calendar.MINUTE))\n})\n",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 1:56:03 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nformat: java.text.SimpleDateFormat \u003d java.text.SimpleDateFormat@c6244d5a\n\nimport java.util.Calendar\n\ndefined class RichDate\n\nudfDate: org.apache.spark.sql.expressions.UserDefinedFunction \u003d UserDefinedFunction(\u003cfunction2\u003e,StructType(StructField(date,DateType,true), StructField(monthDay,StringType,true), StructField(year,IntegerType,false), StructField(month,IntegerType,false), StructField(day,IntegerType,false), StructField(dayOfYear,IntegerType,false), StructField(dayInWeek,IntegerType,false), StructField(hour,IntegerType,false), StructField(minute,IntegerType,false)),Some(List(StringType, StringType)))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509354011729_2060422905",
+      "id": "20171030-090011_1083391449",
+      "dateCreated": "Oct 30, 2017 9:00:11 AM",
+      "dateStarted": "Oct 30, 2017 1:56:03 PM",
+      "dateFinished": "Oct 30, 2017 1:56:04 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "\n\n// df.withColumn(\"JDate\", date_format($\"Date\", \"MM/dd/yyyy\")).show\nval dfRich\u003ddf.\n    withColumn(\"RichDate\", udfDate($\"Date\", $\"Time\")).\n    drop(\"Date\").\n    withColumn(\"date\", $\"RichDate.date\").\n    withColumn(\"year\", $\"RichDate.year\").\n    withColumn(\"month\", $\"RichDate.month\").\n    withColumn(\"monthDay\", $\"RichDate.monthDay\").\n    withColumn(\"day\", $\"RichDate.day\").\n    withColumn(\"dayInWeek\", $\"RichDate.dayInWeek\").\n    withColumn(\"dayOfYear\", $\"RichDate.dayOfYear\").\n    withColumn(\"hour\", $\"RichDate.hour\").\n    withColumn(\"minute\", $\"RichDate.minute\")\n    \n    ",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 1:58:08 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\ndfRich: org.apache.spark.sql.DataFrame \u003d [IncidntNum: string, Category: string ... 20 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509352150692_-656924471",
+      "id": "20171030-082910_1289554509",
+      "dateCreated": "Oct 30, 2017 8:29:10 AM",
+      "dateStarted": "Oct 30, 2017 1:58:08 PM",
+      "dateFinished": "Oct 30, 2017 1:58:08 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "highcharts(df\n    .series(\"name\" -\u003e \"Category\", \"y\" -\u003e count(\"*\"))\n    .orderBy(count(\"*\").desc)\n    ).chart(Chart.pie).plot",
+      "user": "anonymous",
+      "dateUpdated": "Oct 29, 2017 12:57:23 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\n\u003cdiv id\u003d\"highcharts_9a1d720c_cc4a_4fa1_8e95_73af481b21fa\" style\u003d\"min-width: 310px; height: 400px; margin: 0 auto\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\n$(function () {\nvar data \u003d {\n  \"series\":[{\n    \"data\":[{\n      \"name\":\"LARCENY/THEFT\",\n      \"y\":454621\n    },{\n      \"name\":\"OTHER OFFENSES\",\n      \"y\":299857\n    },{\n      \"name\":\"NON-CRIMINAL\",\n      \"y\":229021\n    },{\n      \"name\":\"ASSAULT\",\n      \"y\":187209\n    },{\n      \"name\":\"VEHICLE THEFT\",\n      \"y\":124065\n    },{\n      \"name\":\"DRUG/NARCOTIC\",\n      \"y\":117437\n    },{\n      \"name\":\"VANDALISM\",\n      \"y\":111230\n    },{\n      \"name\":\"WARRANTS\",\n      \"y\":98616\n    },{\n      \"name\":\"BURGLARY\",\n      \"y\":88065\n    },{\n      \"name\":\"SUSPICIOUS OCC\",\n      \"y\":77524\n    },{\n      \"name\":\"MISSING PERSON\",\n      \"y\":62691\n    },{\n      \"name\":\"ROBBERY\",\n      \"y\":54088\n    },{\n      \"name\":\"FRAUD\",\n      \"y\":40156\n    },{\n      \"name\":\"SECONDARY CODES\",\n      \"y\":24783\n    },{\n      \"name\":\"FORGERY/COUNTERFEITING\",\n      \"y\":22730\n    },{\n      \"name\":\"WEAPON LAWS\",\n      \"y\":21212\n    },{\n      \"name\":\"TRESPASS\",\n      \"y\":18636\n    },{\n      \"name\":\"PROSTITUTION\",\n      \"y\":16567\n    },{\n      \"name\":\"STOLEN PROPERTY\",\n      \"y\":11466\n    },{\n      \"name\":\"SEX OFFENSES, FORCIBLE\",\n      \"y\":11153\n    },{\n      \"name\":\"DISORDERLY CONDUCT\",\n      \"y\":9872\n    },{\n      \"name\":\"DRUNKENNESS\",\n      \"y\":9668\n    },{\n      \"name\":\"RECOVERED VEHICLE\",\n      \"y\":8570\n    },{\n      \"name\":\"DRIVING UNDER THE INFLUENCE\",\n      \"y\":5517\n    },{\n      \"name\":\"KIDNAPPING\",\n      \"y\":5231\n    },{\n      \"name\":\"RUNAWAY\",\n      \"y\":4308\n    },{\n      \"name\":\"LIQUOR LAWS\",\n      \"y\":4056\n    },{\n      \"name\":\"ARSON\",\n      \"y\":3758\n    },{\n      \"name\":\"EMBEZZLEMENT\",\n      \"y\":2875\n    },{\n      \"name\":\"LOITERING\",\n      \"y\":2410\n    },{\n      \"name\":\"SUICIDE\",\n      \"y\":1259\n    },{\n      \"name\":\"FAMILY OFFENSES\",\n      \"y\":1160\n    },{\n      \"name\":\"BAD CHECKS\",\n      \"y\":912\n    },{\n      \"name\":\"BRIBERY\",\n      \"y\":778\n    },{\n      \"name\":\"EXTORTION\",\n      \"y\":713\n    },{\n      \"name\":\"SEX OFFENSES, NON FORCIBLE\",\n      \"y\":411\n    },{\n      \"name\":\"GAMBLING\",\n      \"y\":335\n    },{\n      \"name\":\"PORNOGRAPHY/OBSCENE MAT\",\n      \"y\":54\n    },{\n      \"name\":\"TREA\",\n      \"y\":14\n    }]\n  }],\n  \"chart\":{\n    \"type\":\"pie\"\n  }\n}\n\n$(\"#highcharts_9a1d720c_cc4a_4fa1_8e95_73af481b21fa\").highcharts(data)\n});\n\u003c/script\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509180444979_-2147307107",
+      "id": "20171028-084724_1273363465",
+      "dateCreated": "Oct 28, 2017 8:47:24 AM",
+      "dateStarted": "Oct 29, 2017 12:57:24 PM",
+      "dateFinished": "Oct 29, 2017 12:57:25 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "df.registerTempTable(\"df\")",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 12:13:33 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509365604610_1609008686",
+      "id": "20171030-121324_1827145393",
+      "dateCreated": "Oct 30, 2017 12:13:24 PM",
+      "dateStarted": "Oct 30, 2017 12:13:33 PM",
+      "dateFinished": "Oct 30, 2017 12:13:33 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "df.filter(\"PdDistrict is null\").show",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 12:14:47 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+-------------+--------------------+---------+----------+-----+----------+----------+--------------------+------------------+-----------------+--------------------+--------------+\n|IncidntNum|     Category|            Descript|DayOfWeek|      Date| Time|PdDistrict|Resolution|             Address|                 X|                Y|            Location|          PdId|\n+----------+-------------+--------------------+---------+----------+-----+----------+----------+--------------------+------------------+-----------------+--------------------+--------------+\n| 166018573|LARCENY/THEFT|GRAND THEFT FROM ...|   Sunday|01/17/2016|23:54|      null|      NONE|100 Block of VELA...|-122.4133519852842|37.70820245849022|(37.7082024584902...|16601857306244|\n+----------+-------------+--------------------+---------+----------+-----+----------+----------+--------------------+------------------+-----------------+--------------------+--------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509351879203_1731797559",
+      "id": "20171030-082439_923553596",
+      "dateCreated": "Oct 30, 2017 8:24:39 AM",
+      "dateStarted": "Oct 30, 2017 12:14:47 PM",
+      "dateFinished": "Oct 30, 2017 12:14:47 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "highcharts(df\n    .series(\"name\" -\u003e \"PdDistrict\", \"y\" -\u003e count(\"*\"))\n    .orderBy(count(\"*\").desc)\n    ).chart(Chart.pie).plot",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 12:15:09 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\n\u003cdiv id\u003d\"highcharts_46e9666d_cee6_4c38_b337_d73e92db103a\" style\u003d\"min-width: 310px; height: 400px; margin: 0 auto\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\n$(function () {\nvar data \u003d {\n  \"series\":[{\n    \"data\":[{\n      \"name\":\"SOUTHERN\",\n      \"y\":384589\n    },{\n      \"name\":\"MISSION\",\n      \"y\":288418\n    },{\n      \"name\":\"NORTHERN\",\n      \"y\":261765\n    },{\n      \"name\":\"CENTRAL\",\n      \"y\":215592\n    },{\n      \"name\":\"BAYVIEW\",\n      \"y\":213550\n    },{\n      \"name\":\"INGLESIDE\",\n      \"y\":187969\n    },{\n      \"name\":\"TENDERLOIN\",\n      \"y\":186901\n    },{\n      \"name\":\"TARAVAL\",\n      \"y\":160758\n    },{\n      \"name\":\"PARK\",\n      \"y\":121239\n    },{\n      \"name\":\"RICHMOND\",\n      \"y\":112246\n    },{\n      \"name\":null,\n      \"y\":1\n    }]\n  }],\n  \"chart\":{\n    \"type\":\"pie\"\n  }\n}\n\n$(\"#highcharts_46e9666d_cee6_4c38_b337_d73e92db103a\").highcharts(data)\n});\n\u003c/script\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509351817143_-1461926440",
+      "id": "20171030-082337_529841402",
+      "dateCreated": "Oct 30, 2017 8:23:37 AM",
+      "dateStarted": "Oct 30, 2017 12:15:09 PM",
+      "dateFinished": "Oct 30, 2017 12:15:10 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "dfRich.select(min($\"date\"), max($\"date\"), min($\"day\"), max($\"day\"), min($\"hour\"), max($\"hour\")).show",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 1:17:05 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+----------+--------+--------+---------+---------+\n| min(date)| max(date)|min(day)|max(day)|min(hour)|max(hour)|\n+----------+----------+--------+--------+---------+---------+\n|2003-01-01|2017-10-14|       1|      31|        0|       23|\n+----------+----------+--------+--------+---------+---------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509366106240_-938124267",
+      "id": "20171030-122146_1576788131",
+      "dateCreated": "Oct 30, 2017 12:21:46 PM",
+      "dateStarted": "Oct 30, 2017 1:17:05 PM",
+      "dateFinished": "Oct 30, 2017 1:17:32 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "highcharts(dfRich\n    .series(\"x\" -\u003e \"dayOfYear\", \"y\" -\u003e count(\"*\")).orderBy($\"dayOfYear\")\n  ).chart(Chart.spline).\n  plot",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 12:29:44 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\n\u003cdiv id\u003d\"highcharts_a59f053c_c783_4586_96eb_88e5809a1354\" style\u003d\"min-width: 310px; height: 400px; margin: 0 auto\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\n$(function () {\nvar data \u003d {\n  \"series\":[{\n    \"data\":[{\n      \"x\":1,\n      \"y\":20560\n    },{\n      \"x\":2,\n      \"y\":18854\n    },{\n      \"x\":3,\n      \"y\":19099\n    },{\n      \"x\":4,\n      \"y\":18903\n    },{\n      \"x\":5,\n      \"y\":18394\n    },{\n      \"x\":6,\n      \"y\":18678\n    },{\n      \"x\":7,\n      \"y\":18521\n    },{\n      \"x\":8,\n      \"y\":18645\n    },{\n      \"x\":9,\n      \"y\":19089\n    },{\n      \"x\":10,\n      \"y\":18998\n    },{\n      \"x\":11,\n      \"y\":17482\n    },{\n      \"x\":12,\n      \"y\":14285\n    },{\n      \"x\":32,\n      \"y\":17270\n    },{\n      \"x\":33,\n      \"y\":17590\n    },{\n      \"x\":34,\n      \"y\":17794\n    },{\n      \"x\":35,\n      \"y\":17598\n    },{\n      \"x\":36,\n      \"y\":17577\n    },{\n      \"x\":37,\n      \"y\":17787\n    },{\n      \"x\":38,\n      \"y\":17519\n    },{\n      \"x\":39,\n      \"y\":17692\n    },{\n      \"x\":40,\n      \"y\":18111\n    },{\n      \"x\":41,\n      \"y\":17526\n    },{\n      \"x\":42,\n      \"y\":16092\n    },{\n      \"x\":43,\n      \"y\":14823\n    },{\n      \"x\":60,\n      \"y\":13572\n    },{\n      \"x\":61,\n      \"y\":18166\n    },{\n      \"x\":62,\n      \"y\":17843\n    },{\n      \"x\":63,\n      \"y\":18038\n    },{\n      \"x\":64,\n      \"y\":17623\n    },{\n      \"x\":65,\n      \"y\":17590\n    },{\n      \"x\":66,\n      \"y\":18128\n    },{\n      \"x\":67,\n      \"y\":18349\n    },{\n      \"x\":68,\n      \"y\":18036\n    },{\n      \"x\":69,\n      \"y\":17593\n    },{\n      \"x\":70,\n      \"y\":16433\n    },{\n      \"x\":71,\n      \"y\":15894\n    },{\n      \"x\":72,\n      \"y\":4018\n    },{\n      \"x\":91,\n      \"y\":13297\n    },{\n      \"x\":92,\n      \"y\":17741\n    },{\n      \"x\":93,\n      \"y\":17986\n    },{\n      \"x\":94,\n      \"y\":18035\n    },{\n      \"x\":95,\n      \"y\":17767\n    },{\n      \"x\":96,\n      \"y\":17830\n    },{\n      \"x\":97,\n      \"y\":17631\n    },{\n      \"x\":98,\n      \"y\":18223\n    },{\n      \"x\":99,\n      \"y\":17902\n    },{\n      \"x\":100,\n      \"y\":17432\n    },{\n      \"x\":101,\n      \"y\":16297\n    },{\n      \"x\":102,\n      \"y\":15792\n    },{\n      \"x\":103,\n      \"y\":3765\n    },{\n      \"x\":121,\n      \"y\":13450\n    },{\n      \"x\":122,\n      \"y\":14602\n    },{\n      \"x\":123,\n      \"y\":17187\n    },{\n      \"x\":124,\n      \"y\":17802\n    },{\n      \"x\":125,\n      \"y\":17888\n    },{\n      \"x\":126,\n      \"y\":17232\n    },{\n      \"x\":127,\n      \"y\":17123\n    },{\n      \"x\":128,\n      \"y\":17952\n    },{\n      \"x\":129,\n      \"y\":18037\n    },{\n      \"x\":130,\n      \"y\":17399\n    },{\n      \"x\":131,\n      \"y\":16118\n    },{\n      \"x\":132,\n      \"y\":15993\n    },{\n      \"x\":133,\n      \"y\":4176\n    },{\n      \"x\":152,\n      \"y\":13408\n    },{\n      \"x\":153,\n      \"y\":12682\n    },{\n      \"x\":154,\n      \"y\":17014\n    },{\n      \"x\":155,\n      \"y\":17534\n    },{\n      \"x\":156,\n      \"y\":17866\n    },{\n      \"x\":157,\n      \"y\":17213\n    },{\n      \"x\":158,\n      \"y\":16954\n    },{\n      \"x\":159,\n      \"y\":17815\n    },{\n      \"x\":160,\n      \"y\":18024\n    },{\n      \"x\":161,\n      \"y\":17151\n    },{\n      \"x\":162,\n      \"y\":16554\n    },{\n      \"x\":163,\n      \"y\":15621\n    },{\n      \"x\":164,\n      \"y\":4014\n    },{\n      \"x\":182,\n      \"y\":13499\n    },{\n      \"x\":183,\n      \"y\":12537\n    },{\n      \"x\":184,\n      \"y\":16632\n    },{\n      \"x\":185,\n      \"y\":12940\n    },{\n      \"x\":186,\n      \"y\":16819\n    },{\n      \"x\":187,\n      \"y\":12483\n    },{\n      \"x\":188,\n      \"y\":15866\n    },{\n      \"x\":189,\n      \"y\":18005\n    },{\n      \"x\":190,\n      \"y\":12822\n    },{\n      \"x\":191,\n      \"y\":16618\n    },{\n      \"x\":192,\n      \"y\":12102\n    },{\n      \"x\":193,\n      \"y\":14645\n    },{\n      \"x\":194,\n      \"y\":4089\n    },{\n      \"x\":213,\n      \"y\":8619\n    },{\n      \"x\":214,\n      \"y\":11649\n    },{\n      \"x\":215,\n      \"y\":11905\n    },{\n      \"x\":216,\n      \"y\":12173\n    },{\n      \"x\":217,\n      \"y\":12148\n    },{\n      \"x\":218,\n      \"y\":11456\n    },{\n      \"x\":219,\n      \"y\":11455\n    },{\n      \"x\":220,\n      \"y\":12105\n    },{\n      \"x\":221,\n      \"y\":11964\n    },{\n      \"x\":222,\n      \"y\":11595\n    },{\n      \"x\":223,\n      \"y\":11294\n    },{\n      \"x\":224,\n      \"y\":10643\n    },{\n      \"x\":225,\n      \"y\":3022\n    },{\n      \"x\":244,\n      \"y\":8697\n    },{\n      \"x\":245,\n      \"y\":11586\n    },{\n      \"x\":246,\n      \"y\":11978\n    },{\n      \"x\":247,\n      \"y\":11906\n    },{\n      \"x\":248,\n      \"y\":11573\n    },{\n      \"x\":249,\n      \"y\":11377\n    },{\n      \"x\":250,\n      \"y\":11455\n    },{\n      \"x\":251,\n      \"y\":11984\n    },{\n      \"x\":252,\n      \"y\":12177\n    },{\n      \"x\":253,\n      \"y\":11558\n    },{\n      \"x\":254,\n      \"y\":10996\n    },{\n      \"x\":255,\n      \"y\":10360\n    },{\n      \"x\":256,\n      \"y\":2862\n    },{\n      \"x\":274,\n      \"y\":8780\n    },{\n      \"x\":275,\n      \"y\":12071\n    },{\n      \"x\":276,\n      \"y\":11876\n    },{\n      \"x\":277,\n      \"y\":11902\n    },{\n      \"x\":278,\n      \"y\":11464\n    },{\n      \"x\":279,\n      \"y\":11292\n    },{\n      \"x\":280,\n      \"y\":11766\n    },{\n      \"x\":281,\n      \"y\":11874\n    },{\n      \"x\":282,\n      \"y\":12265\n    },{\n      \"x\":283,\n      \"y\":11631\n    },{\n      \"x\":284,\n      \"y\":10930\n    },{\n      \"x\":285,\n      \"y\":10644\n    },{\n      \"x\":286,\n      \"y\":3081\n    },{\n      \"x\":305,\n      \"y\":8684\n    },{\n      \"x\":306,\n      \"y\":11772\n    },{\n      \"x\":307,\n      \"y\":12133\n    },{\n      \"x\":308,\n      \"y\":12077\n    },{\n      \"x\":309,\n      \"y\":11745\n    },{\n      \"x\":310,\n      \"y\":11799\n    },{\n      \"x\":311,\n      \"y\":11396\n    },{\n      \"x\":312,\n      \"y\":12344\n    },{\n      \"x\":313,\n      \"y\":12360\n    },{\n      \"x\":314,\n      \"y\":11553\n    },{\n      \"x\":315,\n      \"y\":10794\n    },{\n      \"x\":316,\n      \"y\":10149\n    },{\n      \"x\":317,\n      \"y\":2970\n    },{\n      \"x\":335,\n      \"y\":8651\n    },{\n      \"x\":336,\n      \"y\":12012\n    },{\n      \"x\":337,\n      \"y\":12013\n    },{\n      \"x\":338,\n      \"y\":11862\n    },{\n      \"x\":339,\n      \"y\":11821\n    },{\n      \"x\":340,\n      \"y\":11822\n    },{\n      \"x\":341,\n      \"y\":11541\n    },{\n      \"x\":342,\n      \"y\":12179\n    },{\n      \"x\":343,\n      \"y\":12080\n    },{\n      \"x\":344,\n      \"y\":11703\n    },{\n      \"x\":345,\n      \"y\":10918\n    },{\n      \"x\":346,\n      \"y\":9985\n    },{\n      \"x\":347,\n      \"y\":2818\n    }]\n  }],\n  \"chart\":{\n    \"type\":\"spline\"\n  }\n}\n\n$(\"#highcharts_a59f053c_c783_4586_96eb_88e5809a1354\").highcharts(data)\n});\n\u003c/script\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509365713304_-1946350275",
+      "id": "20171030-121513_1017752830",
+      "dateCreated": "Oct 30, 2017 12:15:13 PM",
+      "dateStarted": "Oct 30, 2017 12:29:44 PM",
+      "dateFinished": "Oct 30, 2017 12:29:55 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "highcharts(dfRich\n    .series(\"name\" -\u003e \"monthDay\", \"y\" -\u003e count(\"*\")).orderBy($\"monthDay\")\n  ).chart(Chart.spline).\n  plot",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 12:46:05 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\n\u003cdiv id\u003d\"highcharts_63a40b70_edcb_4985_b103_6c17b1af2906\" style\u003d\"min-width: 310px; height: 400px; margin: 0 auto\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\n$(function () {\nvar data \u003d {\n  \"series\":[{\n    \"data\":[{\n      \"name\":\"01/01\",\n      \"y\":8392\n    },{\n      \"name\":\"01/02\",\n      \"y\":5372\n    },{\n      \"name\":\"01/03\",\n      \"y\":5623\n    },{\n      \"name\":\"01/04\",\n      \"y\":5465\n    },{\n      \"name\":\"01/05\",\n      \"y\":5850\n    },{\n      \"name\":\"01/06\",\n      \"y\":5931\n    },{\n      \"name\":\"01/07\",\n      \"y\":5915\n    },{\n      \"name\":\"01/08\",\n      \"y\":5758\n    },{\n      \"name\":\"01/09\",\n      \"y\":5854\n    },{\n      \"name\":\"01/10\",\n      \"y\":5994\n    },{\n      \"name\":\"01/11\",\n      \"y\":5716\n    },{\n      \"name\":\"01/12\",\n      \"y\":5954\n    },{\n      \"name\":\"01/13\",\n      \"y\":6078\n    },{\n      \"name\":\"01/14\",\n      \"y\":6077\n    },{\n      \"name\":\"01/15\",\n      \"y\":6237\n    },{\n      \"name\":\"01/16\",\n      \"y\":5997\n    },{\n      \"name\":\"01/17\",\n      \"y\":5893\n    },{\n      \"name\":\"01/18\",\n      \"y\":5759\n    },{\n      \"name\":\"01/19\",\n      \"y\":5925\n    },{\n      \"name\":\"01/20\",\n      \"y\":5993\n    },{\n      \"name\":\"01/21\",\n      \"y\":5924\n    },{\n      \"name\":\"01/22\",\n      \"y\":5983\n    },{\n      \"name\":\"01/23\",\n      \"y\":6058\n    },{\n      \"name\":\"01/24\",\n      \"y\":5933\n    },{\n      \"name\":\"01/25\",\n      \"y\":6090\n    },{\n      \"name\":\"01/26\",\n      \"y\":5821\n    },{\n      \"name\":\"01/27\",\n      \"y\":6102\n    },{\n      \"name\":\"01/28\",\n      \"y\":5925\n    },{\n      \"name\":\"01/29\",\n      \"y\":6060\n    },{\n      \"name\":\"01/30\",\n      \"y\":5767\n    },{\n      \"name\":\"01/31\",\n      \"y\":5885\n    },{\n      \"name\":\"02/01\",\n      \"y\":6787\n    },{\n      \"name\":\"02/02\",\n      \"y\":5879\n    },{\n      \"name\":\"02/03\",\n      \"y\":6146\n    },{\n      \"name\":\"02/04\",\n      \"y\":6197\n    },{\n      \"name\":\"02/05\",\n      \"y\":5877\n    },{\n      \"name\":\"02/06\",\n      \"y\":5905\n    },{\n      \"name\":\"02/07\",\n      \"y\":5772\n    },{\n      \"name\":\"02/08\",\n      \"y\":5810\n    },{\n      \"name\":\"02/09\",\n      \"y\":5860\n    },{\n      \"name\":\"02/10\",\n      \"y\":6184\n    },{\n      \"name\":\"02/11\",\n      \"y\":5998\n    },{\n      \"name\":\"02/12\",\n      \"y\":6012\n    },{\n      \"name\":\"02/13\",\n      \"y\":6046\n    },{\n      \"name\":\"02/14\",\n      \"y\":5914\n    },{\n      \"name\":\"02/15\",\n      \"y\":6010\n    },{\n      \"name\":\"02/16\",\n      \"y\":5875\n    },{\n      \"name\":\"02/17\",\n      \"y\":5957\n    },{\n      \"name\":\"02/18\",\n      \"y\":5985\n    },{\n      \"name\":\"02/19\",\n      \"y\":5742\n    },{\n      \"name\":\"02/20\",\n      \"y\":5942\n    },{\n      \"name\":\"02/21\",\n      \"y\":5902\n    },{\n      \"name\":\"02/22\",\n      \"y\":5821\n    },{\n      \"name\":\"02/23\",\n      \"y\":5940\n    },{\n      \"name\":\"02/24\",\n      \"y\":5882\n    },{\n      \"name\":\"02/25\",\n      \"y\":6021\n    },{\n      \"name\":\"02/26\",\n      \"y\":5797\n    },{\n      \"name\":\"02/27\",\n      \"y\":5860\n    },{\n      \"name\":\"02/28\",\n      \"y\":5947\n    },{\n      \"name\":\"02/29\",\n      \"y\":1510\n    },{\n      \"name\":\"03/01\",\n      \"y\":6969\n    },{\n      \"name\":\"03/02\",\n      \"y\":5955\n    },{\n      \"name\":\"03/03\",\n      \"y\":6084\n    },{\n      \"name\":\"03/04\",\n      \"y\":6128\n    },{\n      \"name\":\"03/05\",\n      \"y\":6030\n    },{\n      \"name\":\"03/06\",\n      \"y\":5919\n    },{\n      \"name\":\"03/07\",\n      \"y\":5962\n    },{\n      \"name\":\"03/08\",\n      \"y\":6056\n    },{\n      \"name\":\"03/09\",\n      \"y\":6022\n    },{\n      \"name\":\"03/10\",\n      \"y\":6025\n    },{\n      \"name\":\"03/11\",\n      \"y\":5965\n    },{\n      \"name\":\"03/12\",\n      \"y\":6007\n    },{\n      \"name\":\"03/13\",\n      \"y\":5939\n    },{\n      \"name\":\"03/14\",\n      \"y\":5803\n    },{\n      \"name\":\"03/15\",\n      \"y\":6175\n    },{\n      \"name\":\"03/16\",\n      \"y\":5990\n    },{\n      \"name\":\"03/17\",\n      \"y\":6363\n    },{\n      \"name\":\"03/18\",\n      \"y\":6041\n    },{\n      \"name\":\"03/19\",\n      \"y\":5920\n    },{\n      \"name\":\"03/20\",\n      \"y\":5866\n    },{\n      \"name\":\"03/21\",\n      \"y\":5853\n    },{\n      \"name\":\"03/22\",\n      \"y\":5913\n    },{\n      \"name\":\"03/23\",\n      \"y\":5982\n    },{\n      \"name\":\"03/24\",\n      \"y\":6017\n    },{\n      \"name\":\"03/25\",\n      \"y\":6191\n    },{\n      \"name\":\"03/26\",\n      \"y\":6036\n    },{\n      \"name\":\"03/27\",\n      \"y\":5877\n    },{\n      \"name\":\"03/28\",\n      \"y\":5920\n    },{\n      \"name\":\"03/29\",\n      \"y\":6060\n    },{\n      \"name\":\"03/30\",\n      \"y\":5916\n    },{\n      \"name\":\"03/31\",\n      \"y\":5729\n    },{\n      \"name\":\"04/01\",\n      \"y\":7044\n    },{\n      \"name\":\"04/02\",\n      \"y\":5845\n    },{\n      \"name\":\"04/03\",\n      \"y\":5777\n    },{\n      \"name\":\"04/04\",\n      \"y\":6005\n    },{\n      \"name\":\"04/05\",\n      \"y\":5926\n    },{\n      \"name\":\"04/06\",\n      \"y\":5916\n    },{\n      \"name\":\"04/07\",\n      \"y\":5935\n    },{\n      \"name\":\"04/08\",\n      \"y\":5893\n    },{\n      \"name\":\"04/09\",\n      \"y\":5902\n    },{\n      \"name\":\"04/10\",\n      \"y\":5830\n    },{\n      \"name\":\"04/11\",\n      \"y\":6056\n    },{\n      \"name\":\"04/12\",\n      \"y\":5896\n    },{\n      \"name\":\"04/13\",\n      \"y\":5808\n    },{\n      \"name\":\"04/14\",\n      \"y\":5885\n    },{\n      \"name\":\"04/15\",\n      \"y\":6147\n    },{\n      \"name\":\"04/16\",\n      \"y\":5926\n    },{\n      \"name\":\"04/17\",\n      \"y\":5827\n    },{\n      \"name\":\"04/18\",\n      \"y\":5885\n    },{\n      \"name\":\"04/19\",\n      \"y\":6072\n    },{\n      \"name\":\"04/20\",\n      \"y\":6145\n    },{\n      \"name\":\"04/21\",\n      \"y\":5871\n    },{\n      \"name\":\"04/22\",\n      \"y\":5986\n    },{\n      \"name\":\"04/23\",\n      \"y\":6083\n    },{\n      \"name\":\"04/24\",\n      \"y\":5992\n    },{\n      \"name\":\"04/25\",\n      \"y\":6051\n    },{\n      \"name\":\"04/26\",\n      \"y\":5868\n    },{\n      \"name\":\"04/27\",\n      \"y\":5880\n    },{\n      \"name\":\"04/28\",\n      \"y\":6148\n    },{\n      \"name\":\"04/29\",\n      \"y\":5891\n    },{\n      \"name\":\"04/30\",\n      \"y\":5851\n    },{\n      \"name\":\"05/01\",\n      \"y\":6656\n    },{\n      \"name\":\"05/02\",\n      \"y\":5755\n    },{\n      \"name\":\"05/03\",\n      \"y\":5503\n    },{\n      \"name\":\"05/04\",\n      \"y\":5752\n    },{\n      \"name\":\"05/05\",\n      \"y\":6118\n    },{\n      \"name\":\"05/06\",\n      \"y\":6146\n    },{\n      \"name\":\"05/07\",\n      \"y\":6018\n    },{\n      \"name\":\"05/08\",\n      \"y\":5918\n    },{\n      \"name\":\"05/09\",\n      \"y\":5703\n    },{\n      \"name\":\"05/10\",\n      \"y\":5729\n    },{\n      \"name\":\"05/11\",\n      \"y\":5889\n    },{\n      \"name\":\"05/12\",\n      \"y\":5835\n    },{\n      \"name\":\"05/13\",\n      \"y\":5718\n    },{\n      \"name\":\"05/14\",\n      \"y\":5888\n    },{\n      \"name\":\"05/15\",\n      \"y\":6198\n    },{\n      \"name\":\"05/16\",\n      \"y\":6136\n    },{\n      \"name\":\"05/17\",\n      \"y\":5942\n    },{\n      \"name\":\"05/18\",\n      \"y\":5933\n    },{\n      \"name\":\"05/19\",\n      \"y\":6228\n    },{\n      \"name\":\"05/20\",\n      \"y\":6212\n    },{\n      \"name\":\"05/21\",\n      \"y\":5963\n    },{\n      \"name\":\"05/22\",\n      \"y\":5911\n    },{\n      \"name\":\"05/23\",\n      \"y\":5872\n    },{\n      \"name\":\"05/24\",\n      \"y\":5914\n    },{\n      \"name\":\"05/25\",\n      \"y\":6020\n    },{\n      \"name\":\"05/26\",\n      \"y\":5934\n    },{\n      \"name\":\"05/27\",\n      \"y\":6012\n    },{\n      \"name\":\"05/28\",\n      \"y\":5849\n    },{\n      \"name\":\"05/29\",\n      \"y\":5878\n    },{\n      \"name\":\"05/30\",\n      \"y\":5808\n    },{\n      \"name\":\"05/31\",\n      \"y\":5505\n    },{\n      \"name\":\"06/01\",\n      \"y\":7001\n    },{\n      \"name\":\"06/02\",\n      \"y\":6009\n    },{\n      \"name\":\"06/03\",\n      \"y\":5818\n    },{\n      \"name\":\"06/04\",\n      \"y\":5810\n    },{\n      \"name\":\"06/05\",\n      \"y\":5737\n    },{\n      \"name\":\"06/06\",\n      \"y\":5474\n    },{\n      \"name\":\"06/07\",\n      \"y\":5501\n    },{\n      \"name\":\"06/08\",\n      \"y\":5588\n    },{\n      \"name\":\"06/09\",\n      \"y\":5594\n    },{\n      \"name\":\"06/10\",\n      \"y\":5456\n    },{\n      \"name\":\"06/11\",\n      \"y\":5672\n    },{\n      \"name\":\"06/12\",\n      \"y\":5813\n    },{\n      \"name\":\"06/13\",\n      \"y\":5614\n    },{\n      \"name\":\"06/14\",\n      \"y\":5629\n    },{\n      \"name\":\"06/15\",\n      \"y\":5876\n    },{\n      \"name\":\"06/16\",\n      \"y\":5640\n    },{\n      \"name\":\"06/17\",\n      \"y\":5682\n    },{\n      \"name\":\"06/18\",\n      \"y\":5673\n    },{\n      \"name\":\"06/19\",\n      \"y\":5683\n    },{\n      \"name\":\"06/20\",\n      \"y\":5992\n    },{\n      \"name\":\"06/21\",\n      \"y\":5608\n    },{\n      \"name\":\"06/22\",\n      \"y\":5623\n    },{\n      \"name\":\"06/23\",\n      \"y\":6046\n    },{\n      \"name\":\"06/24\",\n      \"y\":6070\n    },{\n      \"name\":\"06/25\",\n      \"y\":6063\n    },{\n      \"name\":\"06/26\",\n      \"y\":6149\n    },{\n      \"name\":\"06/27\",\n      \"y\":5927\n    },{\n      \"name\":\"06/28\",\n      \"y\":6296\n    },{\n      \"name\":\"06/29\",\n      \"y\":5722\n    },{\n      \"name\":\"06/30\",\n      \"y\":5730\n    },{\n      \"name\":\"07/01\",\n      \"y\":6692\n    },{\n      \"name\":\"07/02\",\n      \"y\":5766\n    },{\n      \"name\":\"07/03\",\n      \"y\":5972\n    },{\n      \"name\":\"07/04\",\n      \"y\":5657\n    },{\n      \"name\":\"07/05\",\n      \"y\":5596\n    },{\n      \"name\":\"07/06\",\n      \"y\":5592\n    },{\n      \"name\":\"07/07\",\n      \"y\":5808\n    },{\n      \"name\":\"07/08\",\n      \"y\":5668\n    },{\n      \"name\":\"07/09\",\n      \"y\":5814\n    },{\n      \"name\":\"07/10\",\n      \"y\":5789\n    },{\n      \"name\":\"07/11\",\n      \"y\":5584\n    },{\n      \"name\":\"07/12\",\n      \"y\":5668\n    },{\n      \"name\":\"07/13\",\n      \"y\":5896\n    },{\n      \"name\":\"07/14\",\n      \"y\":5930\n    },{\n      \"name\":\"07/15\",\n      \"y\":6204\n    },{\n      \"name\":\"07/16\",\n      \"y\":5924\n    },{\n      \"name\":\"07/17\",\n      \"y\":5808\n    },{\n      \"name\":\"07/18\",\n      \"y\":5872\n    },{\n      \"name\":\"07/19\",\n      \"y\":5964\n    },{\n      \"name\":\"07/20\",\n      \"y\":5732\n    },{\n      \"name\":\"07/21\",\n      \"y\":5871\n    },{\n      \"name\":\"07/22\",\n      \"y\":6005\n    },{\n      \"name\":\"07/23\",\n      \"y\":5894\n    },{\n      \"name\":\"07/24\",\n      \"y\":5889\n    },{\n      \"name\":\"07/25\",\n      \"y\":5933\n    },{\n      \"name\":\"07/26\",\n      \"y\":5823\n    },{\n      \"name\":\"07/27\",\n      \"y\":5962\n    },{\n      \"name\":\"07/28\",\n      \"y\":6133\n    },{\n      \"name\":\"07/29\",\n      \"y\":5907\n    },{\n      \"name\":\"07/30\",\n      \"y\":5765\n    },{\n      \"name\":\"07/31\",\n      \"y\":5478\n    },{\n      \"name\":\"08/01\",\n      \"y\":6316\n    },{\n      \"name\":\"08/02\",\n      \"y\":5683\n    },{\n      \"name\":\"08/03\",\n      \"y\":6026\n    },{\n      \"name\":\"08/04\",\n      \"y\":5895\n    },{\n      \"name\":\"08/05\",\n      \"y\":6008\n    },{\n      \"name\":\"08/06\",\n      \"y\":5850\n    },{\n      \"name\":\"08/07\",\n      \"y\":5893\n    },{\n      \"name\":\"08/08\",\n      \"y\":5814\n    },{\n      \"name\":\"08/09\",\n      \"y\":5973\n    },{\n      \"name\":\"08/10\",\n      \"y\":5993\n    },{\n      \"name\":\"08/11\",\n      \"y\":6139\n    },{\n      \"name\":\"08/12\",\n      \"y\":6062\n    },{\n      \"name\":\"08/13\",\n      \"y\":6090\n    },{\n      \"name\":\"08/14\",\n      \"y\":5872\n    },{\n      \"name\":\"08/15\",\n      \"y\":6255\n    },{\n      \"name\":\"08/16\",\n      \"y\":5912\n    },{\n      \"name\":\"08/17\",\n      \"y\":5837\n    },{\n      \"name\":\"08/18\",\n      \"y\":6078\n    },{\n      \"name\":\"08/19\",\n      \"y\":6047\n    },{\n      \"name\":\"08/20\",\n      \"y\":6209\n    },{\n      \"name\":\"08/21\",\n      \"y\":6043\n    },{\n      \"name\":\"08/22\",\n      \"y\":6046\n    },{\n      \"name\":\"08/23\",\n      \"y\":6149\n    },{\n      \"name\":\"08/24\",\n      \"y\":6103\n    },{\n      \"name\":\"08/25\",\n      \"y\":6239\n    },{\n      \"name\":\"08/26\",\n      \"y\":6137\n    },{\n      \"name\":\"08/27\",\n      \"y\":6071\n    },{\n      \"name\":\"08/28\",\n      \"y\":6090\n    },{\n      \"name\":\"08/29\",\n      \"y\":6129\n    },{\n      \"name\":\"08/30\",\n      \"y\":6020\n    },{\n      \"name\":\"08/31\",\n      \"y\":6057\n    },{\n      \"name\":\"09/01\",\n      \"y\":6939\n    },{\n      \"name\":\"09/02\",\n      \"y\":5936\n    },{\n      \"name\":\"09/03\",\n      \"y\":5698\n    },{\n      \"name\":\"09/04\",\n      \"y\":5882\n    },{\n      \"name\":\"09/05\",\n      \"y\":5893\n    },{\n      \"name\":\"09/06\",\n      \"y\":5987\n    },{\n      \"name\":\"09/07\",\n      \"y\":5862\n    },{\n      \"name\":\"09/08\",\n      \"y\":6006\n    },{\n      \"name\":\"09/09\",\n      \"y\":6221\n    },{\n      \"name\":\"09/10\",\n      \"y\":6111\n    },{\n      \"name\":\"09/11\",\n      \"y\":6031\n    },{\n      \"name\":\"09/12\",\n      \"y\":6171\n    },{\n      \"name\":\"09/13\",\n      \"y\":6010\n    },{\n      \"name\":\"09/14\",\n      \"y\":6025\n    },{\n      \"name\":\"09/15\",\n      \"y\":6251\n    },{\n      \"name\":\"09/16\",\n      \"y\":6210\n    },{\n      \"name\":\"09/17\",\n      \"y\":6017\n    },{\n      \"name\":\"09/18\",\n      \"y\":5968\n    },{\n      \"name\":\"09/19\",\n      \"y\":5803\n    },{\n      \"name\":\"09/20\",\n      \"y\":6097\n    },{\n      \"name\":\"09/21\",\n      \"y\":5997\n    },{\n      \"name\":\"09/22\",\n      \"y\":6178\n    },{\n      \"name\":\"09/23\",\n      \"y\":6422\n    },{\n      \"name\":\"09/24\",\n      \"y\":6130\n    },{\n      \"name\":\"09/25\",\n      \"y\":6140\n    },{\n      \"name\":\"09/26\",\n      \"y\":6150\n    },{\n      \"name\":\"09/27\",\n      \"y\":6215\n    },{\n      \"name\":\"09/28\",\n      \"y\":6017\n    },{\n      \"name\":\"09/29\",\n      \"y\":6194\n    },{\n      \"name\":\"09/30\",\n      \"y\":6100\n    },{\n      \"name\":\"10/01\",\n      \"y\":7229\n    },{\n      \"name\":\"10/02\",\n      \"y\":5960\n    },{\n      \"name\":\"10/03\",\n      \"y\":6062\n    },{\n      \"name\":\"10/04\",\n      \"y\":6060\n    },{\n      \"name\":\"10/05\",\n      \"y\":5910\n    },{\n      \"name\":\"10/06\",\n      \"y\":6188\n    },{\n      \"name\":\"10/07\",\n      \"y\":6269\n    },{\n      \"name\":\"10/08\",\n      \"y\":6125\n    },{\n      \"name\":\"10/09\",\n      \"y\":5929\n    },{\n      \"name\":\"10/10\",\n      \"y\":5996\n    },{\n      \"name\":\"10/11\",\n      \"y\":5956\n    },{\n      \"name\":\"10/12\",\n      \"y\":5887\n    },{\n      \"name\":\"10/13\",\n      \"y\":6032\n    },{\n      \"name\":\"10/14\",\n      \"y\":6156\n    },{\n      \"name\":\"10/15\",\n      \"y\":5875\n    },{\n      \"name\":\"10/16\",\n      \"y\":5703\n    },{\n      \"name\":\"10/17\",\n      \"y\":5699\n    },{\n      \"name\":\"10/18\",\n      \"y\":5480\n    },{\n      \"name\":\"10/19\",\n      \"y\":5585\n    },{\n      \"name\":\"10/20\",\n      \"y\":5746\n    },{\n      \"name\":\"10/21\",\n      \"y\":5562\n    },{\n      \"name\":\"10/22\",\n      \"y\":5606\n    },{\n      \"name\":\"10/23\",\n      \"y\":5643\n    },{\n      \"name\":\"10/24\",\n      \"y\":5800\n    },{\n      \"name\":\"10/25\",\n      \"y\":5737\n    },{\n      \"name\":\"10/26\",\n      \"y\":5410\n    },{\n      \"name\":\"10/27\",\n      \"y\":5587\n    },{\n      \"name\":\"10/28\",\n      \"y\":5849\n    },{\n      \"name\":\"10/29\",\n      \"y\":5633\n    },{\n      \"name\":\"10/30\",\n      \"y\":5623\n    },{\n      \"name\":\"10/31\",\n      \"y\":6178\n    },{\n      \"name\":\"11/01\",\n      \"y\":6784\n    },{\n      \"name\":\"11/02\",\n      \"y\":5341\n    },{\n      \"name\":\"11/03\",\n      \"y\":5716\n    },{\n      \"name\":\"11/04\",\n      \"y\":5659\n    },{\n      \"name\":\"11/05\",\n      \"y\":5357\n    },{\n      \"name\":\"11/06\",\n      \"y\":5355\n    },{\n      \"name\":\"11/07\",\n      \"y\":5191\n    },{\n      \"name\":\"11/08\",\n      \"y\":5387\n    },{\n      \"name\":\"11/09\",\n      \"y\":5360\n    },{\n      \"name\":\"11/10\",\n      \"y\":5656\n    },{\n      \"name\":\"11/11\",\n      \"y\":5346\n    },{\n      \"name\":\"11/12\",\n      \"y\":5506\n    },{\n      \"name\":\"11/13\",\n      \"y\":5529\n    },{\n      \"name\":\"11/14\",\n      \"y\":5504\n    },{\n      \"name\":\"11/15\",\n      \"y\":5716\n    },{\n      \"name\":\"11/16\",\n      \"y\":5436\n    },{\n      \"name\":\"11/17\",\n      \"y\":5453\n    },{\n      \"name\":\"11/18\",\n      \"y\":5663\n    },{\n      \"name\":\"11/19\",\n      \"y\":5438\n    },{\n      \"name\":\"11/20\",\n      \"y\":5506\n    },{\n      \"name\":\"11/21\",\n      \"y\":5555\n    },{\n      \"name\":\"11/22\",\n      \"y\":5163\n    },{\n      \"name\":\"11/23\",\n      \"y\":5272\n    },{\n      \"name\":\"11/24\",\n      \"y\":5219\n    },{\n      \"name\":\"11/25\",\n      \"y\":5169\n    },{\n      \"name\":\"11/26\",\n      \"y\":5247\n    },{\n      \"name\":\"11/27\",\n      \"y\":4779\n    },{\n      \"name\":\"11/28\",\n      \"y\":4867\n    },{\n      \"name\":\"11/29\",\n      \"y\":5305\n    },{\n      \"name\":\"11/30\",\n      \"y\":5189\n    },{\n      \"name\":\"12/01\",\n      \"y\":6087\n    },{\n      \"name\":\"12/02\",\n      \"y\":5307\n    },{\n      \"name\":\"12/03\",\n      \"y\":5194\n    },{\n      \"name\":\"12/04\",\n      \"y\":5154\n    },{\n      \"name\":\"12/05\",\n      \"y\":5334\n    },{\n      \"name\":\"12/06\",\n      \"y\":5142\n    },{\n      \"name\":\"12/07\",\n      \"y\":5049\n    },{\n      \"name\":\"12/08\",\n      \"y\":5012\n    },{\n      \"name\":\"12/09\",\n      \"y\":5064\n    },{\n      \"name\":\"12/10\",\n      \"y\":5220\n    },{\n      \"name\":\"12/11\",\n      \"y\":5040\n    },{\n      \"name\":\"12/12\",\n      \"y\":5151\n    },{\n      \"name\":\"12/13\",\n      \"y\":5153\n    },{\n      \"name\":\"12/14\",\n      \"y\":5200\n    },{\n      \"name\":\"12/15\",\n      \"y\":5520\n    },{\n      \"name\":\"12/16\",\n      \"y\":5213\n    },{\n      \"name\":\"12/17\",\n      \"y\":5316\n    },{\n      \"name\":\"12/18\",\n      \"y\":5043\n    },{\n      \"name\":\"12/19\",\n      \"y\":5234\n    },{\n      \"name\":\"12/20\",\n      \"y\":5553\n    },{\n      \"name\":\"12/21\",\n      \"y\":5064\n    },{\n      \"name\":\"12/22\",\n      \"y\":5358\n    },{\n      \"name\":\"12/23\",\n      \"y\":5023\n    },{\n      \"name\":\"12/24\",\n      \"y\":4494\n    },{\n      \"name\":\"12/25\",\n      \"y\":3045\n    },{\n      \"name\":\"12/26\",\n      \"y\":4316\n    },{\n      \"name\":\"12/27\",\n      \"y\":4928\n    },{\n      \"name\":\"12/28\",\n      \"y\":5031\n    },{\n      \"name\":\"12/29\",\n      \"y\":5240\n    },{\n      \"name\":\"12/30\",\n      \"y\":5296\n    },{\n      \"name\":\"12/31\",\n      \"y\":5409\n    }]\n  }],\n  \"chart\":{\n    \"type\":\"spline\"\n  }\n}\n\n$(\"#highcharts_63a40b70_edcb_4985_b103_6c17b1af2906\").highcharts(data)\n});\n\u003c/script\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509366628473_-1088422646",
+      "id": "20171030-123028_53441873",
+      "dateCreated": "Oct 30, 2017 12:30:28 PM",
+      "dateStarted": "Oct 30, 2017 12:46:05 PM",
+      "dateFinished": "Oct 30, 2017 12:46:16 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "highcharts(dfRich\n    .series(\"name\" -\u003e \"hour\", \"y\" -\u003e count(\"*\"))\n  ).chart(Chart.column).\n  plot",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 1:17:41 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\n\u003cdiv id\u003d\"highcharts_89d21668_6438_4f26_ab48_5e39180f3129\" style\u003d\"min-width: 310px; height: 400px; margin: 0 auto\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\n$(function () {\nvar data \u003d {\n  \"series\":[{\n    \"data\":[{\n      \"name\":12,\n      \"y\":127522\n    },{\n      \"name\":22,\n      \"y\":110082\n    },{\n      \"name\":1,\n      \"y\":63039\n    },{\n      \"name\":13,\n      \"y\":104516\n    },{\n      \"name\":16,\n      \"y\":120887\n    },{\n      \"name\":6,\n      \"y\":32246\n    },{\n      \"name\":3,\n      \"y\":34270\n    },{\n      \"name\":20,\n      \"y\":110400\n    },{\n      \"name\":5,\n      \"y\":21476\n    },{\n      \"name\":19,\n      \"y\":121193\n    },{\n      \"name\":15,\n      \"y\":115758\n    },{\n      \"name\":17,\n      \"y\":130608\n    },{\n      \"name\":9,\n      \"y\":85954\n    },{\n      \"name\":4,\n      \"y\":24292\n    },{\n      \"name\":8,\n      \"y\":79500\n    },{\n      \"name\":23,\n      \"y\":101524\n    },{\n      \"name\":7,\n      \"y\":53614\n    },{\n      \"name\":10,\n      \"y\":91714\n    },{\n      \"name\":21,\n      \"y\":105502\n    },{\n      \"name\":11,\n      \"y\":93679\n    },{\n      \"name\":14,\n      \"y\":107879\n    },{\n      \"name\":2,\n      \"y\":52740\n    },{\n      \"name\":0,\n      \"y\":109180\n    },{\n      \"name\":18,\n      \"y\":135453\n    }]\n  }],\n  \"chart\":{\n    \"type\":\"column\"\n  }\n}\n\n$(\"#highcharts_89d21668_6438_4f26_ab48_5e39180f3129\").highcharts(data)\n});\n\u003c/script\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509369106000_-221107801",
+      "id": "20171030-131146_1729623824",
+      "dateCreated": "Oct 30, 2017 1:11:46 PM",
+      "dateStarted": "Oct 30, 2017 1:17:41 PM",
+      "dateFinished": "Oct 30, 2017 1:17:51 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "highcharts(dfRich\n    .series(\"name\" -\u003e \"Category\", \"y\" -\u003e count(\"*\"))\n    .orderBy(count(\"*\"))\n    .drilldown(\"name\" -\u003e \"hour\", \"y\" -\u003e count(\"*\"))\n    .orderBy($\"hour\")\n    ).chart(Chart.column).xAxis(new XAxis(\"\").typ(\"category\")).plot",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 1:40:07 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\n\u003cdiv id\u003d\"highcharts_d6a26b70_df51_4fff_b8eb_8cee3652ea15\" style\u003d\"min-width: 310px; height: 400px; margin: 0 auto\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\n$(function () {\nvar data \u003d {\n  \"series\":[{\n    \"data\":[{\n      \"drilldown\":\"Category\u003dTREA\",\n      \"name\":\"TREA\",\n      \"y\":14\n    },{\n      \"drilldown\":\"Category\u003dPORNOGRAPHY/OBSCENE MAT\",\n      \"name\":\"PORNOGRAPHY/OBSCENE MAT\",\n      \"y\":54\n    },{\n      \"drilldown\":\"Category\u003dGAMBLING\",\n      \"name\":\"GAMBLING\",\n      \"y\":335\n    },{\n      \"drilldown\":\"Category\u003dSEX OFFENSES, NON FORCIBLE\",\n      \"name\":\"SEX OFFENSES, NON FORCIBLE\",\n      \"y\":411\n    },{\n      \"drilldown\":\"Category\u003dEXTORTION\",\n      \"name\":\"EXTORTION\",\n      \"y\":713\n    },{\n      \"drilldown\":\"Category\u003dBRIBERY\",\n      \"name\":\"BRIBERY\",\n      \"y\":778\n    },{\n      \"drilldown\":\"Category\u003dBAD CHECKS\",\n      \"name\":\"BAD CHECKS\",\n      \"y\":912\n    },{\n      \"drilldown\":\"Category\u003dFAMILY OFFENSES\",\n      \"name\":\"FAMILY OFFENSES\",\n      \"y\":1160\n    },{\n      \"drilldown\":\"Category\u003dSUICIDE\",\n      \"name\":\"SUICIDE\",\n      \"y\":1259\n    },{\n      \"drilldown\":\"Category\u003dLOITERING\",\n      \"name\":\"LOITERING\",\n      \"y\":2410\n    },{\n      \"drilldown\":\"Category\u003dEMBEZZLEMENT\",\n      \"name\":\"EMBEZZLEMENT\",\n      \"y\":2875\n    },{\n      \"drilldown\":\"Category\u003dARSON\",\n      \"name\":\"ARSON\",\n      \"y\":3758\n    },{\n      \"drilldown\":\"Category\u003dLIQUOR LAWS\",\n      \"name\":\"LIQUOR LAWS\",\n      \"y\":4056\n    },{\n      \"drilldown\":\"Category\u003dRUNAWAY\",\n      \"name\":\"RUNAWAY\",\n      \"y\":4308\n    },{\n      \"drilldown\":\"Category\u003dKIDNAPPING\",\n      \"name\":\"KIDNAPPING\",\n      \"y\":5231\n    },{\n      \"drilldown\":\"Category\u003dDRIVING UNDER THE INFLUENCE\",\n      \"name\":\"DRIVING UNDER THE INFLUENCE\",\n      \"y\":5517\n    },{\n      \"drilldown\":\"Category\u003dRECOVERED VEHICLE\",\n      \"name\":\"RECOVERED VEHICLE\",\n      \"y\":8570\n    },{\n      \"drilldown\":\"Category\u003dDRUNKENNESS\",\n      \"name\":\"DRUNKENNESS\",\n      \"y\":9668\n    },{\n      \"drilldown\":\"Category\u003dDISORDERLY CONDUCT\",\n      \"name\":\"DISORDERLY CONDUCT\",\n      \"y\":9872\n    },{\n      \"drilldown\":\"Category\u003dSEX OFFENSES, FORCIBLE\",\n      \"name\":\"SEX OFFENSES, FORCIBLE\",\n      \"y\":11153\n    },{\n      \"drilldown\":\"Category\u003dSTOLEN PROPERTY\",\n      \"name\":\"STOLEN PROPERTY\",\n      \"y\":11466\n    },{\n      \"drilldown\":\"Category\u003dPROSTITUTION\",\n      \"name\":\"PROSTITUTION\",\n      \"y\":16567\n    },{\n      \"drilldown\":\"Category\u003dTRESPASS\",\n      \"name\":\"TRESPASS\",\n      \"y\":18636\n    },{\n      \"drilldown\":\"Category\u003dWEAPON LAWS\",\n      \"name\":\"WEAPON LAWS\",\n      \"y\":21212\n    },{\n      \"drilldown\":\"Category\u003dFORGERY/COUNTERFEITING\",\n      \"name\":\"FORGERY/COUNTERFEITING\",\n      \"y\":22730\n    },{\n      \"drilldown\":\"Category\u003dSECONDARY CODES\",\n      \"name\":\"SECONDARY CODES\",\n      \"y\":24783\n    },{\n      \"drilldown\":\"Category\u003dFRAUD\",\n      \"name\":\"FRAUD\",\n      \"y\":40156\n    },{\n      \"drilldown\":\"Category\u003dROBBERY\",\n      \"name\":\"ROBBERY\",\n      \"y\":54088\n    },{\n      \"drilldown\":\"Category\u003dMISSING PERSON\",\n      \"name\":\"MISSING PERSON\",\n      \"y\":62691\n    },{\n      \"drilldown\":\"Category\u003dSUSPICIOUS OCC\",\n      \"name\":\"SUSPICIOUS OCC\",\n      \"y\":77524\n    },{\n      \"drilldown\":\"Category\u003dBURGLARY\",\n      \"name\":\"BURGLARY\",\n      \"y\":88065\n    },{\n      \"drilldown\":\"Category\u003dWARRANTS\",\n      \"name\":\"WARRANTS\",\n      \"y\":98616\n    },{\n      \"drilldown\":\"Category\u003dVANDALISM\",\n      \"name\":\"VANDALISM\",\n      \"y\":111230\n    },{\n      \"drilldown\":\"Category\u003dDRUG/NARCOTIC\",\n      \"name\":\"DRUG/NARCOTIC\",\n      \"y\":117437\n    },{\n      \"drilldown\":\"Category\u003dVEHICLE THEFT\",\n      \"name\":\"VEHICLE THEFT\",\n      \"y\":124065\n    },{\n      \"drilldown\":\"Category\u003dASSAULT\",\n      \"name\":\"ASSAULT\",\n      \"y\":187209\n    },{\n      \"drilldown\":\"Category\u003dNON-CRIMINAL\",\n      \"name\":\"NON-CRIMINAL\",\n      \"y\":229021\n    },{\n      \"drilldown\":\"Category\u003dOTHER OFFENSES\",\n      \"name\":\"OTHER OFFENSES\",\n      \"y\":299857\n    },{\n      \"drilldown\":\"Category\u003dLARCENY/THEFT\",\n      \"name\":\"LARCENY/THEFT\",\n      \"y\":454621\n    }]\n  }],\n  \"drilldown\":{\n    \"series\":[{\n      \"id\":\"Category\u003dTREA\",\n      \"name\":\"Category\u003dTREA\",\n      \"data\":[{\n        \"name\":2,\n        \"y\":2\n      },{\n        \"name\":5,\n        \"y\":1\n      },{\n        \"name\":6,\n        \"y\":1\n      },{\n        \"name\":7,\n        \"y\":1\n      },{\n        \"name\":10,\n        \"y\":1\n      },{\n        \"name\":11,\n        \"y\":1\n      },{\n        \"name\":12,\n        \"y\":1\n      },{\n        \"name\":15,\n        \"y\":1\n      },{\n        \"name\":16,\n        \"y\":1\n      },{\n        \"name\":17,\n        \"y\":1\n      },{\n        \"name\":19,\n        \"y\":1\n      },{\n        \"name\":20,\n        \"y\":1\n      },{\n        \"name\":22,\n        \"y\":1\n      }]\n    },{\n      \"id\":\"Category\u003dPORNOGRAPHY/OBSCENE MAT\",\n      \"name\":\"Category\u003dPORNOGRAPHY/OBSCENE MAT\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":5\n      },{\n        \"name\":2,\n        \"y\":3\n      },{\n        \"name\":3,\n        \"y\":2\n      },{\n        \"name\":6,\n        \"y\":3\n      },{\n        \"name\":8,\n        \"y\":2\n      },{\n        \"name\":9,\n        \"y\":3\n      },{\n        \"name\":10,\n        \"y\":1\n      },{\n        \"name\":11,\n        \"y\":2\n      },{\n        \"name\":12,\n        \"y\":4\n      },{\n        \"name\":13,\n        \"y\":1\n      },{\n        \"name\":14,\n        \"y\":7\n      },{\n        \"name\":15,\n        \"y\":2\n      },{\n        \"name\":16,\n        \"y\":4\n      },{\n        \"name\":17,\n        \"y\":1\n      },{\n        \"name\":18,\n        \"y\":3\n      },{\n        \"name\":20,\n        \"y\":1\n      },{\n        \"name\":21,\n        \"y\":3\n      },{\n        \"name\":22,\n        \"y\":6\n      },{\n        \"name\":23,\n        \"y\":1\n      }]\n    },{\n      \"id\":\"Category\u003dGAMBLING\",\n      \"name\":\"Category\u003dGAMBLING\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":22\n      },{\n        \"name\":1,\n        \"y\":1\n      },{\n        \"name\":2,\n        \"y\":2\n      },{\n        \"name\":3,\n        \"y\":2\n      },{\n        \"name\":4,\n        \"y\":1\n      },{\n        \"name\":5,\n        \"y\":4\n      },{\n        \"name\":6,\n        \"y\":2\n      },{\n        \"name\":7,\n        \"y\":5\n      },{\n        \"name\":8,\n        \"y\":11\n      },{\n        \"name\":9,\n        \"y\":11\n      },{\n        \"name\":10,\n        \"y\":20\n      },{\n        \"name\":11,\n        \"y\":27\n      },{\n        \"name\":12,\n        \"y\":32\n      },{\n        \"name\":13,\n        \"y\":29\n      },{\n        \"name\":14,\n        \"y\":27\n      },{\n        \"name\":15,\n        \"y\":31\n      },{\n        \"name\":16,\n        \"y\":19\n      },{\n        \"name\":17,\n        \"y\":22\n      },{\n        \"name\":18,\n        \"y\":22\n      },{\n        \"name\":19,\n        \"y\":14\n      },{\n        \"name\":20,\n        \"y\":8\n      },{\n        \"name\":21,\n        \"y\":6\n      },{\n        \"name\":22,\n        \"y\":9\n      },{\n        \"name\":23,\n        \"y\":8\n      }]\n    },{\n      \"id\":\"Category\u003dSEX OFFENSES, NON FORCIBLE\",\n      \"name\":\"Category\u003dSEX OFFENSES, NON FORCIBLE\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":79\n      },{\n        \"name\":1,\n        \"y\":6\n      },{\n        \"name\":2,\n        \"y\":2\n      },{\n        \"name\":3,\n        \"y\":2\n      },{\n        \"name\":4,\n        \"y\":2\n      },{\n        \"name\":5,\n        \"y\":4\n      },{\n        \"name\":6,\n        \"y\":6\n      },{\n        \"name\":7,\n        \"y\":5\n      },{\n        \"name\":8,\n        \"y\":18\n      },{\n        \"name\":9,\n        \"y\":18\n      },{\n        \"name\":10,\n        \"y\":13\n      },{\n        \"name\":11,\n        \"y\":23\n      },{\n        \"name\":12,\n        \"y\":41\n      },{\n        \"name\":13,\n        \"y\":19\n      },{\n        \"name\":14,\n        \"y\":23\n      },{\n        \"name\":15,\n        \"y\":27\n      },{\n        \"name\":16,\n        \"y\":17\n      },{\n        \"name\":17,\n        \"y\":16\n      },{\n        \"name\":18,\n        \"y\":19\n      },{\n        \"name\":19,\n        \"y\":13\n      },{\n        \"name\":20,\n        \"y\":16\n      },{\n        \"name\":21,\n        \"y\":12\n      },{\n        \"name\":22,\n        \"y\":13\n      },{\n        \"name\":23,\n        \"y\":17\n      }]\n    },{\n      \"id\":\"Category\u003dEXTORTION\",\n      \"name\":\"Category\u003dEXTORTION\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":80\n      },{\n        \"name\":1,\n        \"y\":11\n      },{\n        \"name\":2,\n        \"y\":14\n      },{\n        \"name\":3,\n        \"y\":8\n      },{\n        \"name\":4,\n        \"y\":4\n      },{\n        \"name\":5,\n        \"y\":7\n      },{\n        \"name\":6,\n        \"y\":9\n      },{\n        \"name\":7,\n        \"y\":16\n      },{\n        \"name\":8,\n        \"y\":27\n      },{\n        \"name\":9,\n        \"y\":31\n      },{\n        \"name\":10,\n        \"y\":61\n      },{\n        \"name\":11,\n        \"y\":36\n      },{\n        \"name\":12,\n        \"y\":72\n      },{\n        \"name\":13,\n        \"y\":45\n      },{\n        \"name\":14,\n        \"y\":41\n      },{\n        \"name\":15,\n        \"y\":42\n      },{\n        \"name\":16,\n        \"y\":33\n      },{\n        \"name\":17,\n        \"y\":31\n      },{\n        \"name\":18,\n        \"y\":27\n      },{\n        \"name\":19,\n        \"y\":30\n      },{\n        \"name\":20,\n        \"y\":20\n      },{\n        \"name\":21,\n        \"y\":24\n      },{\n        \"name\":22,\n        \"y\":24\n      },{\n        \"name\":23,\n        \"y\":20\n      }]\n    },{\n      \"id\":\"Category\u003dBRIBERY\",\n      \"name\":\"Category\u003dBRIBERY\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":41\n      },{\n        \"name\":1,\n        \"y\":26\n      },{\n        \"name\":2,\n        \"y\":26\n      },{\n        \"name\":3,\n        \"y\":19\n      },{\n        \"name\":4,\n        \"y\":9\n      },{\n        \"name\":5,\n        \"y\":8\n      },{\n        \"name\":6,\n        \"y\":6\n      },{\n        \"name\":7,\n        \"y\":11\n      },{\n        \"name\":8,\n        \"y\":15\n      },{\n        \"name\":9,\n        \"y\":33\n      },{\n        \"name\":10,\n        \"y\":39\n      },{\n        \"name\":11,\n        \"y\":31\n      },{\n        \"name\":12,\n        \"y\":41\n      },{\n        \"name\":13,\n        \"y\":41\n      },{\n        \"name\":14,\n        \"y\":39\n      },{\n        \"name\":15,\n        \"y\":35\n      },{\n        \"name\":16,\n        \"y\":46\n      },{\n        \"name\":17,\n        \"y\":54\n      },{\n        \"name\":18,\n        \"y\":29\n      },{\n        \"name\":19,\n        \"y\":49\n      },{\n        \"name\":20,\n        \"y\":44\n      },{\n        \"name\":21,\n        \"y\":45\n      },{\n        \"name\":22,\n        \"y\":49\n      },{\n        \"name\":23,\n        \"y\":42\n      }]\n    },{\n      \"id\":\"Category\u003dBAD CHECKS\",\n      \"name\":\"Category\u003dBAD CHECKS\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":158\n      },{\n        \"name\":1,\n        \"y\":3\n      },{\n        \"name\":2,\n        \"y\":2\n      },{\n        \"name\":3,\n        \"y\":3\n      },{\n        \"name\":4,\n        \"y\":3\n      },{\n        \"name\":5,\n        \"y\":2\n      },{\n        \"name\":6,\n        \"y\":3\n      },{\n        \"name\":7,\n        \"y\":12\n      },{\n        \"name\":8,\n        \"y\":49\n      },{\n        \"name\":9,\n        \"y\":65\n      },{\n        \"name\":10,\n        \"y\":58\n      },{\n        \"name\":11,\n        \"y\":46\n      },{\n        \"name\":12,\n        \"y\":186\n      },{\n        \"name\":13,\n        \"y\":46\n      },{\n        \"name\":14,\n        \"y\":50\n      },{\n        \"name\":15,\n        \"y\":61\n      },{\n        \"name\":16,\n        \"y\":50\n      },{\n        \"name\":17,\n        \"y\":41\n      },{\n        \"name\":18,\n        \"y\":20\n      },{\n        \"name\":19,\n        \"y\":20\n      },{\n        \"name\":20,\n        \"y\":12\n      },{\n        \"name\":21,\n        \"y\":9\n      },{\n        \"name\":22,\n        \"y\":8\n      },{\n        \"name\":23,\n        \"y\":5\n      }]\n    },{\n      \"id\":\"Category\u003dFAMILY OFFENSES\",\n      \"name\":\"Category\u003dFAMILY OFFENSES\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":65\n      },{\n        \"name\":1,\n        \"y\":25\n      },{\n        \"name\":2,\n        \"y\":23\n      },{\n        \"name\":3,\n        \"y\":9\n      },{\n        \"name\":4,\n        \"y\":5\n      },{\n        \"name\":5,\n        \"y\":4\n      },{\n        \"name\":6,\n        \"y\":9\n      },{\n        \"name\":7,\n        \"y\":28\n      },{\n        \"name\":8,\n        \"y\":47\n      },{\n        \"name\":9,\n        \"y\":44\n      },{\n        \"name\":10,\n        \"y\":63\n      },{\n        \"name\":11,\n        \"y\":70\n      },{\n        \"name\":12,\n        \"y\":63\n      },{\n        \"name\":13,\n        \"y\":89\n      },{\n        \"name\":14,\n        \"y\":85\n      },{\n        \"name\":15,\n        \"y\":100\n      },{\n        \"name\":16,\n        \"y\":74\n      },{\n        \"name\":17,\n        \"y\":68\n      },{\n        \"name\":18,\n        \"y\":61\n      },{\n        \"name\":19,\n        \"y\":62\n      },{\n        \"name\":20,\n        \"y\":39\n      },{\n        \"name\":21,\n        \"y\":49\n      },{\n        \"name\":22,\n        \"y\":39\n      },{\n        \"name\":23,\n        \"y\":39\n      }]\n    },{\n      \"id\":\"Category\u003dSUICIDE\",\n      \"name\":\"Category\u003dSUICIDE\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":46\n      },{\n        \"name\":1,\n        \"y\":43\n      },{\n        \"name\":2,\n        \"y\":30\n      },{\n        \"name\":3,\n        \"y\":23\n      },{\n        \"name\":4,\n        \"y\":15\n      },{\n        \"name\":5,\n        \"y\":22\n      },{\n        \"name\":6,\n        \"y\":32\n      },{\n        \"name\":7,\n        \"y\":42\n      },{\n        \"name\":8,\n        \"y\":49\n      },{\n        \"name\":9,\n        \"y\":66\n      },{\n        \"name\":10,\n        \"y\":70\n      },{\n        \"name\":11,\n        \"y\":70\n      },{\n        \"name\":12,\n        \"y\":66\n      },{\n        \"name\":13,\n        \"y\":72\n      },{\n        \"name\":14,\n        \"y\":68\n      },{\n        \"name\":15,\n        \"y\":78\n      },{\n        \"name\":16,\n        \"y\":59\n      },{\n        \"name\":17,\n        \"y\":69\n      },{\n        \"name\":18,\n        \"y\":65\n      },{\n        \"name\":19,\n        \"y\":70\n      },{\n        \"name\":20,\n        \"y\":57\n      },{\n        \"name\":21,\n        \"y\":67\n      },{\n        \"name\":22,\n        \"y\":41\n      },{\n        \"name\":23,\n        \"y\":39\n      }]\n    },{\n      \"id\":\"Category\u003dLOITERING\",\n      \"name\":\"Category\u003dLOITERING\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":78\n      },{\n        \"name\":1,\n        \"y\":62\n      },{\n        \"name\":2,\n        \"y\":44\n      },{\n        \"name\":3,\n        \"y\":36\n      },{\n        \"name\":4,\n        \"y\":21\n      },{\n        \"name\":5,\n        \"y\":90\n      },{\n        \"name\":6,\n        \"y\":150\n      },{\n        \"name\":7,\n        \"y\":136\n      },{\n        \"name\":8,\n        \"y\":127\n      },{\n        \"name\":9,\n        \"y\":99\n      },{\n        \"name\":10,\n        \"y\":114\n      },{\n        \"name\":11,\n        \"y\":115\n      },{\n        \"name\":12,\n        \"y\":109\n      },{\n        \"name\":13,\n        \"y\":137\n      },{\n        \"name\":14,\n        \"y\":127\n      },{\n        \"name\":15,\n        \"y\":90\n      },{\n        \"name\":16,\n        \"y\":138\n      },{\n        \"name\":17,\n        \"y\":169\n      },{\n        \"name\":18,\n        \"y\":149\n      },{\n        \"name\":19,\n        \"y\":112\n      },{\n        \"name\":20,\n        \"y\":86\n      },{\n        \"name\":21,\n        \"y\":91\n      },{\n        \"name\":22,\n        \"y\":56\n      },{\n        \"name\":23,\n        \"y\":74\n      }]\n    },{\n      \"id\":\"Category\u003dEMBEZZLEMENT\",\n      \"name\":\"Category\u003dEMBEZZLEMENT\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":621\n      },{\n        \"name\":1,\n        \"y\":12\n      },{\n        \"name\":2,\n        \"y\":8\n      },{\n        \"name\":3,\n        \"y\":12\n      },{\n        \"name\":4,\n        \"y\":12\n      },{\n        \"name\":5,\n        \"y\":7\n      },{\n        \"name\":6,\n        \"y\":13\n      },{\n        \"name\":7,\n        \"y\":35\n      },{\n        \"name\":8,\n        \"y\":210\n      },{\n        \"name\":9,\n        \"y\":211\n      },{\n        \"name\":10,\n        \"y\":160\n      },{\n        \"name\":11,\n        \"y\":115\n      },{\n        \"name\":12,\n        \"y\":495\n      },{\n        \"name\":13,\n        \"y\":104\n      },{\n        \"name\":14,\n        \"y\":117\n      },{\n        \"name\":15,\n        \"y\":132\n      },{\n        \"name\":16,\n        \"y\":113\n      },{\n        \"name\":17,\n        \"y\":131\n      },{\n        \"name\":18,\n        \"y\":111\n      },{\n        \"name\":19,\n        \"y\":80\n      },{\n        \"name\":20,\n        \"y\":53\n      },{\n        \"name\":21,\n        \"y\":54\n      },{\n        \"name\":22,\n        \"y\":32\n      },{\n        \"name\":23,\n        \"y\":37\n      }]\n    },{\n      \"id\":\"Category\u003dARSON\",\n      \"name\":\"Category\u003dARSON\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":243\n      },{\n        \"name\":1,\n        \"y\":232\n      },{\n        \"name\":2,\n        \"y\":252\n      },{\n        \"name\":3,\n        \"y\":251\n      },{\n        \"name\":4,\n        \"y\":209\n      },{\n        \"name\":5,\n        \"y\":165\n      },{\n        \"name\":6,\n        \"y\":111\n      },{\n        \"name\":7,\n        \"y\":87\n      },{\n        \"name\":8,\n        \"y\":89\n      },{\n        \"name\":9,\n        \"y\":75\n      },{\n        \"name\":10,\n        \"y\":83\n      },{\n        \"name\":11,\n        \"y\":80\n      },{\n        \"name\":12,\n        \"y\":106\n      },{\n        \"name\":13,\n        \"y\":116\n      },{\n        \"name\":14,\n        \"y\":114\n      },{\n        \"name\":15,\n        \"y\":132\n      },{\n        \"name\":16,\n        \"y\":120\n      },{\n        \"name\":17,\n        \"y\":149\n      },{\n        \"name\":18,\n        \"y\":145\n      },{\n        \"name\":19,\n        \"y\":162\n      },{\n        \"name\":20,\n        \"y\":187\n      },{\n        \"name\":21,\n        \"y\":186\n      },{\n        \"name\":22,\n        \"y\":226\n      },{\n        \"name\":23,\n        \"y\":238\n      }]\n    },{\n      \"id\":\"Category\u003dLIQUOR LAWS\",\n      \"name\":\"Category\u003dLIQUOR LAWS\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":194\n      },{\n        \"name\":1,\n        \"y\":96\n      },{\n        \"name\":2,\n        \"y\":90\n      },{\n        \"name\":3,\n        \"y\":39\n      },{\n        \"name\":4,\n        \"y\":28\n      },{\n        \"name\":5,\n        \"y\":13\n      },{\n        \"name\":6,\n        \"y\":38\n      },{\n        \"name\":7,\n        \"y\":82\n      },{\n        \"name\":8,\n        \"y\":116\n      },{\n        \"name\":9,\n        \"y\":119\n      },{\n        \"name\":10,\n        \"y\":150\n      },{\n        \"name\":11,\n        \"y\":158\n      },{\n        \"name\":12,\n        \"y\":201\n      },{\n        \"name\":13,\n        \"y\":197\n      },{\n        \"name\":14,\n        \"y\":174\n      },{\n        \"name\":15,\n        \"y\":186\n      },{\n        \"name\":16,\n        \"y\":273\n      },{\n        \"name\":17,\n        \"y\":443\n      },{\n        \"name\":18,\n        \"y\":353\n      },{\n        \"name\":19,\n        \"y\":283\n      },{\n        \"name\":20,\n        \"y\":179\n      },{\n        \"name\":21,\n        \"y\":197\n      },{\n        \"name\":22,\n        \"y\":227\n      },{\n        \"name\":23,\n        \"y\":220\n      }]\n    },{\n      \"id\":\"Category\u003dRUNAWAY\",\n      \"name\":\"Category\u003dRUNAWAY\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":115\n      },{\n        \"name\":1,\n        \"y\":52\n      },{\n        \"name\":2,\n        \"y\":41\n      },{\n        \"name\":3,\n        \"y\":20\n      },{\n        \"name\":4,\n        \"y\":19\n      },{\n        \"name\":5,\n        \"y\":20\n      },{\n        \"name\":6,\n        \"y\":71\n      },{\n        \"name\":7,\n        \"y\":238\n      },{\n        \"name\":8,\n        \"y\":279\n      },{\n        \"name\":9,\n        \"y\":210\n      },{\n        \"name\":10,\n        \"y\":224\n      },{\n        \"name\":11,\n        \"y\":204\n      },{\n        \"name\":12,\n        \"y\":235\n      },{\n        \"name\":13,\n        \"y\":218\n      },{\n        \"name\":14,\n        \"y\":211\n      },{\n        \"name\":15,\n        \"y\":246\n      },{\n        \"name\":16,\n        \"y\":254\n      },{\n        \"name\":17,\n        \"y\":236\n      },{\n        \"name\":18,\n        \"y\":308\n      },{\n        \"name\":19,\n        \"y\":257\n      },{\n        \"name\":20,\n        \"y\":258\n      },{\n        \"name\":21,\n        \"y\":210\n      },{\n        \"name\":22,\n        \"y\":208\n      },{\n        \"name\":23,\n        \"y\":174\n      }]\n    },{\n      \"id\":\"Category\u003dKIDNAPPING\",\n      \"name\":\"Category\u003dKIDNAPPING\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":327\n      },{\n        \"name\":1,\n        \"y\":251\n      },{\n        \"name\":2,\n        \"y\":257\n      },{\n        \"name\":3,\n        \"y\":176\n      },{\n        \"name\":4,\n        \"y\":100\n      },{\n        \"name\":5,\n        \"y\":97\n      },{\n        \"name\":6,\n        \"y\":79\n      },{\n        \"name\":7,\n        \"y\":129\n      },{\n        \"name\":8,\n        \"y\":154\n      },{\n        \"name\":9,\n        \"y\":198\n      },{\n        \"name\":10,\n        \"y\":205\n      },{\n        \"name\":11,\n        \"y\":169\n      },{\n        \"name\":12,\n        \"y\":253\n      },{\n        \"name\":13,\n        \"y\":220\n      },{\n        \"name\":14,\n        \"y\":218\n      },{\n        \"name\":15,\n        \"y\":245\n      },{\n        \"name\":16,\n        \"y\":262\n      },{\n        \"name\":17,\n        \"y\":259\n      },{\n        \"name\":18,\n        \"y\":284\n      },{\n        \"name\":19,\n        \"y\":259\n      },{\n        \"name\":20,\n        \"y\":260\n      },{\n        \"name\":21,\n        \"y\":279\n      },{\n        \"name\":22,\n        \"y\":258\n      },{\n        \"name\":23,\n        \"y\":292\n      }]\n    },{\n      \"id\":\"Category\u003dDRIVING UNDER THE INFLUENCE\",\n      \"name\":\"Category\u003dDRIVING UNDER THE INFLUENCE\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":709\n      },{\n        \"name\":1,\n        \"y\":644\n      },{\n        \"name\":2,\n        \"y\":641\n      },{\n        \"name\":3,\n        \"y\":284\n      },{\n        \"name\":4,\n        \"y\":106\n      },{\n        \"name\":5,\n        \"y\":58\n      },{\n        \"name\":6,\n        \"y\":68\n      },{\n        \"name\":7,\n        \"y\":44\n      },{\n        \"name\":8,\n        \"y\":46\n      },{\n        \"name\":9,\n        \"y\":52\n      },{\n        \"name\":10,\n        \"y\":24\n      },{\n        \"name\":11,\n        \"y\":49\n      },{\n        \"name\":12,\n        \"y\":56\n      },{\n        \"name\":13,\n        \"y\":64\n      },{\n        \"name\":14,\n        \"y\":69\n      },{\n        \"name\":15,\n        \"y\":99\n      },{\n        \"name\":16,\n        \"y\":141\n      },{\n        \"name\":17,\n        \"y\":179\n      },{\n        \"name\":18,\n        \"y\":185\n      },{\n        \"name\":19,\n        \"y\":229\n      },{\n        \"name\":20,\n        \"y\":273\n      },{\n        \"name\":21,\n        \"y\":366\n      },{\n        \"name\":22,\n        \"y\":498\n      },{\n        \"name\":23,\n        \"y\":633\n      }]\n    },{\n      \"id\":\"Category\u003dRECOVERED VEHICLE\",\n      \"name\":\"Category\u003dRECOVERED VEHICLE\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":351\n      },{\n        \"name\":1,\n        \"y\":256\n      },{\n        \"name\":2,\n        \"y\":214\n      },{\n        \"name\":3,\n        \"y\":197\n      },{\n        \"name\":4,\n        \"y\":155\n      },{\n        \"name\":5,\n        \"y\":98\n      },{\n        \"name\":6,\n        \"y\":124\n      },{\n        \"name\":7,\n        \"y\":404\n      },{\n        \"name\":8,\n        \"y\":463\n      },{\n        \"name\":9,\n        \"y\":553\n      },{\n        \"name\":10,\n        \"y\":531\n      },{\n        \"name\":11,\n        \"y\":548\n      },{\n        \"name\":12,\n        \"y\":604\n      },{\n        \"name\":13,\n        \"y\":494\n      },{\n        \"name\":14,\n        \"y\":433\n      },{\n        \"name\":15,\n        \"y\":382\n      },{\n        \"name\":16,\n        \"y\":505\n      },{\n        \"name\":17,\n        \"y\":432\n      },{\n        \"name\":18,\n        \"y\":359\n      },{\n        \"name\":19,\n        \"y\":328\n      },{\n        \"name\":20,\n        \"y\":272\n      },{\n        \"name\":21,\n        \"y\":248\n      },{\n        \"name\":22,\n        \"y\":307\n      },{\n        \"name\":23,\n        \"y\":312\n      }]\n    },{\n      \"id\":\"Category\u003dDRUNKENNESS\",\n      \"name\":\"Category\u003dDRUNKENNESS\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":817\n      },{\n        \"name\":1,\n        \"y\":776\n      },{\n        \"name\":2,\n        \"y\":651\n      },{\n        \"name\":3,\n        \"y\":258\n      },{\n        \"name\":4,\n        \"y\":132\n      },{\n        \"name\":5,\n        \"y\":44\n      },{\n        \"name\":6,\n        \"y\":79\n      },{\n        \"name\":7,\n        \"y\":164\n      },{\n        \"name\":8,\n        \"y\":157\n      },{\n        \"name\":9,\n        \"y\":172\n      },{\n        \"name\":10,\n        \"y\":200\n      },{\n        \"name\":11,\n        \"y\":283\n      },{\n        \"name\":12,\n        \"y\":278\n      },{\n        \"name\":13,\n        \"y\":278\n      },{\n        \"name\":14,\n        \"y\":325\n      },{\n        \"name\":15,\n        \"y\":358\n      },{\n        \"name\":16,\n        \"y\":430\n      },{\n        \"name\":17,\n        \"y\":509\n      },{\n        \"name\":18,\n        \"y\":564\n      },{\n        \"name\":19,\n        \"y\":541\n      },{\n        \"name\":20,\n        \"y\":564\n      },{\n        \"name\":21,\n        \"y\":616\n      },{\n        \"name\":22,\n        \"y\":742\n      },{\n        \"name\":23,\n        \"y\":730\n      }]\n    },{\n      \"id\":\"Category\u003dDISORDERLY CONDUCT\",\n      \"name\":\"Category\u003dDISORDERLY CONDUCT\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":521\n      },{\n        \"name\":1,\n        \"y\":382\n      },{\n        \"name\":2,\n        \"y\":338\n      },{\n        \"name\":3,\n        \"y\":216\n      },{\n        \"name\":4,\n        \"y\":157\n      },{\n        \"name\":5,\n        \"y\":395\n      },{\n        \"name\":6,\n        \"y\":991\n      },{\n        \"name\":7,\n        \"y\":897\n      },{\n        \"name\":8,\n        \"y\":674\n      },{\n        \"name\":9,\n        \"y\":510\n      },{\n        \"name\":10,\n        \"y\":435\n      },{\n        \"name\":11,\n        \"y\":387\n      },{\n        \"name\":12,\n        \"y\":393\n      },{\n        \"name\":13,\n        \"y\":376\n      },{\n        \"name\":14,\n        \"y\":347\n      },{\n        \"name\":15,\n        \"y\":338\n      },{\n        \"name\":16,\n        \"y\":304\n      },{\n        \"name\":17,\n        \"y\":292\n      },{\n        \"name\":18,\n        \"y\":323\n      },{\n        \"name\":19,\n        \"y\":266\n      },{\n        \"name\":20,\n        \"y\":251\n      },{\n        \"name\":21,\n        \"y\":285\n      },{\n        \"name\":22,\n        \"y\":384\n      },{\n        \"name\":23,\n        \"y\":410\n      }]\n    },{\n      \"id\":\"Category\u003dSEX OFFENSES, FORCIBLE\",\n      \"name\":\"Category\u003dSEX OFFENSES, FORCIBLE\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":1401\n      },{\n        \"name\":1,\n        \"y\":558\n      },{\n        \"name\":2,\n        \"y\":584\n      },{\n        \"name\":3,\n        \"y\":379\n      },{\n        \"name\":4,\n        \"y\":215\n      },{\n        \"name\":5,\n        \"y\":170\n      },{\n        \"name\":6,\n        \"y\":146\n      },{\n        \"name\":7,\n        \"y\":204\n      },{\n        \"name\":8,\n        \"y\":417\n      },{\n        \"name\":9,\n        \"y\":380\n      },{\n        \"name\":10,\n        \"y\":350\n      },{\n        \"name\":11,\n        \"y\":325\n      },{\n        \"name\":12,\n        \"y\":572\n      },{\n        \"name\":13,\n        \"y\":410\n      },{\n        \"name\":14,\n        \"y\":426\n      },{\n        \"name\":15,\n        \"y\":543\n      },{\n        \"name\":16,\n        \"y\":522\n      },{\n        \"name\":17,\n        \"y\":537\n      },{\n        \"name\":18,\n        \"y\":459\n      },{\n        \"name\":19,\n        \"y\":425\n      },{\n        \"name\":20,\n        \"y\":522\n      },{\n        \"name\":21,\n        \"y\":495\n      },{\n        \"name\":22,\n        \"y\":543\n      },{\n        \"name\":23,\n        \"y\":570\n      }]\n    },{\n      \"id\":\"Category\u003dSTOLEN PROPERTY\",\n      \"name\":\"Category\u003dSTOLEN PROPERTY\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":544\n      },{\n        \"name\":1,\n        \"y\":385\n      },{\n        \"name\":2,\n        \"y\":319\n      },{\n        \"name\":3,\n        \"y\":248\n      },{\n        \"name\":4,\n        \"y\":222\n      },{\n        \"name\":5,\n        \"y\":169\n      },{\n        \"name\":6,\n        \"y\":191\n      },{\n        \"name\":7,\n        \"y\":283\n      },{\n        \"name\":8,\n        \"y\":355\n      },{\n        \"name\":9,\n        \"y\":376\n      },{\n        \"name\":10,\n        \"y\":423\n      },{\n        \"name\":11,\n        \"y\":502\n      },{\n        \"name\":12,\n        \"y\":653\n      },{\n        \"name\":13,\n        \"y\":610\n      },{\n        \"name\":14,\n        \"y\":656\n      },{\n        \"name\":15,\n        \"y\":696\n      },{\n        \"name\":16,\n        \"y\":726\n      },{\n        \"name\":17,\n        \"y\":752\n      },{\n        \"name\":18,\n        \"y\":723\n      },{\n        \"name\":19,\n        \"y\":595\n      },{\n        \"name\":20,\n        \"y\":561\n      },{\n        \"name\":21,\n        \"y\":494\n      },{\n        \"name\":22,\n        \"y\":508\n      },{\n        \"name\":23,\n        \"y\":475\n      }]\n    },{\n      \"id\":\"Category\u003dPROSTITUTION\",\n      \"name\":\"Category\u003dPROSTITUTION\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":1365\n      },{\n        \"name\":1,\n        \"y\":1054\n      },{\n        \"name\":2,\n        \"y\":774\n      },{\n        \"name\":3,\n        \"y\":541\n      },{\n        \"name\":4,\n        \"y\":470\n      },{\n        \"name\":5,\n        \"y\":577\n      },{\n        \"name\":6,\n        \"y\":516\n      },{\n        \"name\":7,\n        \"y\":266\n      },{\n        \"name\":8,\n        \"y\":151\n      },{\n        \"name\":9,\n        \"y\":158\n      },{\n        \"name\":10,\n        \"y\":189\n      },{\n        \"name\":11,\n        \"y\":213\n      },{\n        \"name\":12,\n        \"y\":455\n      },{\n        \"name\":13,\n        \"y\":333\n      },{\n        \"name\":14,\n        \"y\":307\n      },{\n        \"name\":15,\n        \"y\":234\n      },{\n        \"name\":16,\n        \"y\":286\n      },{\n        \"name\":17,\n        \"y\":599\n      },{\n        \"name\":18,\n        \"y\":1166\n      },{\n        \"name\":19,\n        \"y\":1357\n      },{\n        \"name\":20,\n        \"y\":1090\n      },{\n        \"name\":21,\n        \"y\":1281\n      },{\n        \"name\":22,\n        \"y\":1585\n      },{\n        \"name\":23,\n        \"y\":1600\n      }]\n    },{\n      \"id\":\"Category\u003dTRESPASS\",\n      \"name\":\"Category\u003dTRESPASS\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":546\n      },{\n        \"name\":1,\n        \"y\":392\n      },{\n        \"name\":2,\n        \"y\":430\n      },{\n        \"name\":3,\n        \"y\":355\n      },{\n        \"name\":4,\n        \"y\":256\n      },{\n        \"name\":5,\n        \"y\":517\n      },{\n        \"name\":6,\n        \"y\":1131\n      },{\n        \"name\":7,\n        \"y\":1233\n      },{\n        \"name\":8,\n        \"y\":1140\n      },{\n        \"name\":9,\n        \"y\":1024\n      },{\n        \"name\":10,\n        \"y\":1000\n      },{\n        \"name\":11,\n        \"y\":949\n      },{\n        \"name\":12,\n        \"y\":1024\n      },{\n        \"name\":13,\n        \"y\":951\n      },{\n        \"name\":14,\n        \"y\":850\n      },{\n        \"name\":15,\n        \"y\":930\n      },{\n        \"name\":16,\n        \"y\":867\n      },{\n        \"name\":17,\n        \"y\":898\n      },{\n        \"name\":18,\n        \"y\":842\n      },{\n        \"name\":19,\n        \"y\":756\n      },{\n        \"name\":20,\n        \"y\":723\n      },{\n        \"name\":21,\n        \"y\":698\n      },{\n        \"name\":22,\n        \"y\":600\n      },{\n        \"name\":23,\n        \"y\":524\n      }]\n    },{\n      \"id\":\"Category\u003dWEAPON LAWS\",\n      \"name\":\"Category\u003dWEAPON LAWS\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":1100\n      },{\n        \"name\":1,\n        \"y\":798\n      },{\n        \"name\":2,\n        \"y\":710\n      },{\n        \"name\":3,\n        \"y\":433\n      },{\n        \"name\":4,\n        \"y\":310\n      },{\n        \"name\":5,\n        \"y\":166\n      },{\n        \"name\":6,\n        \"y\":238\n      },{\n        \"name\":7,\n        \"y\":426\n      },{\n        \"name\":8,\n        \"y\":583\n      },{\n        \"name\":9,\n        \"y\":744\n      },{\n        \"name\":10,\n        \"y\":779\n      },{\n        \"name\":11,\n        \"y\":899\n      },{\n        \"name\":12,\n        \"y\":1047\n      },{\n        \"name\":13,\n        \"y\":1050\n      },{\n        \"name\":14,\n        \"y\":1036\n      },{\n        \"name\":15,\n        \"y\":1202\n      },{\n        \"name\":16,\n        \"y\":1259\n      },{\n        \"name\":17,\n        \"y\":1222\n      },{\n        \"name\":18,\n        \"y\":1316\n      },{\n        \"name\":19,\n        \"y\":1217\n      },{\n        \"name\":20,\n        \"y\":1132\n      },{\n        \"name\":21,\n        \"y\":1148\n      },{\n        \"name\":22,\n        \"y\":1228\n      },{\n        \"name\":23,\n        \"y\":1169\n      }]\n    },{\n      \"id\":\"Category\u003dFORGERY/COUNTERFEITING\",\n      \"name\":\"Category\u003dFORGERY/COUNTERFEITING\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":3557\n      },{\n        \"name\":1,\n        \"y\":197\n      },{\n        \"name\":2,\n        \"y\":124\n      },{\n        \"name\":3,\n        \"y\":97\n      },{\n        \"name\":4,\n        \"y\":72\n      },{\n        \"name\":5,\n        \"y\":55\n      },{\n        \"name\":6,\n        \"y\":139\n      },{\n        \"name\":7,\n        \"y\":273\n      },{\n        \"name\":8,\n        \"y\":1109\n      },{\n        \"name\":9,\n        \"y\":1422\n      },{\n        \"name\":10,\n        \"y\":1200\n      },{\n        \"name\":11,\n        \"y\":1066\n      },{\n        \"name\":12,\n        \"y\":3318\n      },{\n        \"name\":13,\n        \"y\":1415\n      },{\n        \"name\":14,\n        \"y\":1293\n      },{\n        \"name\":15,\n        \"y\":1531\n      },{\n        \"name\":16,\n        \"y\":1394\n      },{\n        \"name\":17,\n        \"y\":1295\n      },{\n        \"name\":18,\n        \"y\":864\n      },{\n        \"name\":19,\n        \"y\":610\n      },{\n        \"name\":20,\n        \"y\":564\n      },{\n        \"name\":21,\n        \"y\":440\n      },{\n        \"name\":22,\n        \"y\":384\n      },{\n        \"name\":23,\n        \"y\":311\n      }]\n    },{\n      \"id\":\"Category\u003dSECONDARY CODES\",\n      \"name\":\"Category\u003dSECONDARY CODES\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":1443\n      },{\n        \"name\":1,\n        \"y\":811\n      },{\n        \"name\":2,\n        \"y\":761\n      },{\n        \"name\":3,\n        \"y\":539\n      },{\n        \"name\":4,\n        \"y\":390\n      },{\n        \"name\":5,\n        \"y\":291\n      },{\n        \"name\":6,\n        \"y\":419\n      },{\n        \"name\":7,\n        \"y\":619\n      },{\n        \"name\":8,\n        \"y\":977\n      },{\n        \"name\":9,\n        \"y\":1035\n      },{\n        \"name\":10,\n        \"y\":1033\n      },{\n        \"name\":11,\n        \"y\":1121\n      },{\n        \"name\":12,\n        \"y\":1502\n      },{\n        \"name\":13,\n        \"y\":1170\n      },{\n        \"name\":14,\n        \"y\":1135\n      },{\n        \"name\":15,\n        \"y\":1282\n      },{\n        \"name\":16,\n        \"y\":1276\n      },{\n        \"name\":17,\n        \"y\":1283\n      },{\n        \"name\":18,\n        \"y\":1388\n      },{\n        \"name\":19,\n        \"y\":1290\n      },{\n        \"name\":20,\n        \"y\":1313\n      },{\n        \"name\":21,\n        \"y\":1288\n      },{\n        \"name\":22,\n        \"y\":1285\n      },{\n        \"name\":23,\n        \"y\":1132\n      }]\n    },{\n      \"id\":\"Category\u003dFRAUD\",\n      \"name\":\"Category\u003dFRAUD\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":5444\n      },{\n        \"name\":1,\n        \"y\":727\n      },{\n        \"name\":2,\n        \"y\":488\n      },{\n        \"name\":3,\n        \"y\":300\n      },{\n        \"name\":4,\n        \"y\":195\n      },{\n        \"name\":5,\n        \"y\":184\n      },{\n        \"name\":6,\n        \"y\":341\n      },{\n        \"name\":7,\n        \"y\":666\n      },{\n        \"name\":8,\n        \"y\":1901\n      },{\n        \"name\":9,\n        \"y\":2074\n      },{\n        \"name\":10,\n        \"y\":2014\n      },{\n        \"name\":11,\n        \"y\":1642\n      },{\n        \"name\":12,\n        \"y\":4906\n      },{\n        \"name\":13,\n        \"y\":2221\n      },{\n        \"name\":14,\n        \"y\":2065\n      },{\n        \"name\":15,\n        \"y\":2427\n      },{\n        \"name\":16,\n        \"y\":2145\n      },{\n        \"name\":17,\n        \"y\":2225\n      },{\n        \"name\":18,\n        \"y\":1982\n      },{\n        \"name\":19,\n        \"y\":1539\n      },{\n        \"name\":20,\n        \"y\":1334\n      },{\n        \"name\":21,\n        \"y\":1085\n      },{\n        \"name\":22,\n        \"y\":1075\n      },{\n        \"name\":23,\n        \"y\":1176\n      }]\n    },{\n      \"id\":\"Category\u003dROBBERY\",\n      \"name\":\"Category\u003dROBBERY\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":2921\n      },{\n        \"name\":1,\n        \"y\":2974\n      },{\n        \"name\":2,\n        \"y\":3125\n      },{\n        \"name\":3,\n        \"y\":1883\n      },{\n        \"name\":4,\n        \"y\":1219\n      },{\n        \"name\":5,\n        \"y\":1039\n      },{\n        \"name\":6,\n        \"y\":1009\n      },{\n        \"name\":7,\n        \"y\":909\n      },{\n        \"name\":8,\n        \"y\":1036\n      },{\n        \"name\":9,\n        \"y\":1224\n      },{\n        \"name\":10,\n        \"y\":1402\n      },{\n        \"name\":11,\n        \"y\":1584\n      },{\n        \"name\":12,\n        \"y\":1900\n      },{\n        \"name\":13,\n        \"y\":2010\n      },{\n        \"name\":14,\n        \"y\":2122\n      },{\n        \"name\":15,\n        \"y\":2437\n      },{\n        \"name\":16,\n        \"y\":2659\n      },{\n        \"name\":17,\n        \"y\":2624\n      },{\n        \"name\":18,\n        \"y\":2780\n      },{\n        \"name\":19,\n        \"y\":2962\n      },{\n        \"name\":20,\n        \"y\":3301\n      },{\n        \"name\":21,\n        \"y\":3768\n      },{\n        \"name\":22,\n        \"y\":3720\n      },{\n        \"name\":23,\n        \"y\":3480\n      }]\n    },{\n      \"id\":\"Category\u003dMISSING PERSON\",\n      \"name\":\"Category\u003dMISSING PERSON\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":2086\n      },{\n        \"name\":1,\n        \"y\":925\n      },{\n        \"name\":2,\n        \"y\":771\n      },{\n        \"name\":3,\n        \"y\":463\n      },{\n        \"name\":4,\n        \"y\":342\n      },{\n        \"name\":5,\n        \"y\":461\n      },{\n        \"name\":6,\n        \"y\":1087\n      },{\n        \"name\":7,\n        \"y\":3471\n      },{\n        \"name\":8,\n        \"y\":4261\n      },{\n        \"name\":9,\n        \"y\":3519\n      },{\n        \"name\":10,\n        \"y\":3528\n      },{\n        \"name\":11,\n        \"y\":3302\n      },{\n        \"name\":12,\n        \"y\":4440\n      },{\n        \"name\":13,\n        \"y\":3301\n      },{\n        \"name\":14,\n        \"y\":3427\n      },{\n        \"name\":15,\n        \"y\":3967\n      },{\n        \"name\":16,\n        \"y\":3602\n      },{\n        \"name\":17,\n        \"y\":3415\n      },{\n        \"name\":18,\n        \"y\":3455\n      },{\n        \"name\":19,\n        \"y\":2852\n      },{\n        \"name\":20,\n        \"y\":2759\n      },{\n        \"name\":21,\n        \"y\":2594\n      },{\n        \"name\":22,\n        \"y\":2539\n      },{\n        \"name\":23,\n        \"y\":2124\n      }]\n    },{\n      \"id\":\"Category\u003dSUSPICIOUS OCC\",\n      \"name\":\"Category\u003dSUSPICIOUS OCC\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":5024\n      },{\n        \"name\":1,\n        \"y\":2137\n      },{\n        \"name\":2,\n        \"y\":1937\n      },{\n        \"name\":3,\n        \"y\":1353\n      },{\n        \"name\":4,\n        \"y\":924\n      },{\n        \"name\":5,\n        \"y\":748\n      },{\n        \"name\":6,\n        \"y\":1225\n      },{\n        \"name\":7,\n        \"y\":1968\n      },{\n        \"name\":8,\n        \"y\":3404\n      },{\n        \"name\":9,\n        \"y\":3823\n      },{\n        \"name\":10,\n        \"y\":3810\n      },{\n        \"name\":11,\n        \"y\":3902\n      },{\n        \"name\":12,\n        \"y\":5790\n      },{\n        \"name\":13,\n        \"y\":4179\n      },{\n        \"name\":14,\n        \"y\":4161\n      },{\n        \"name\":15,\n        \"y\":4524\n      },{\n        \"name\":16,\n        \"y\":4317\n      },{\n        \"name\":17,\n        \"y\":4146\n      },{\n        \"name\":18,\n        \"y\":4097\n      },{\n        \"name\":19,\n        \"y\":3629\n      },{\n        \"name\":20,\n        \"y\":3299\n      },{\n        \"name\":21,\n        \"y\":3275\n      },{\n        \"name\":22,\n        \"y\":3127\n      },{\n        \"name\":23,\n        \"y\":2725\n      }]\n    },{\n      \"id\":\"Category\u003dBURGLARY\",\n      \"name\":\"Category\u003dBURGLARY\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":3343\n      },{\n        \"name\":1,\n        \"y\":2159\n      },{\n        \"name\":2,\n        \"y\":2311\n      },{\n        \"name\":3,\n        \"y\":2350\n      },{\n        \"name\":4,\n        \"y\":2091\n      },{\n        \"name\":5,\n        \"y\":1905\n      },{\n        \"name\":6,\n        \"y\":1950\n      },{\n        \"name\":7,\n        \"y\":3064\n      },{\n        \"name\":8,\n        \"y\":4767\n      },{\n        \"name\":9,\n        \"y\":4152\n      },{\n        \"name\":10,\n        \"y\":3844\n      },{\n        \"name\":11,\n        \"y\":3638\n      },{\n        \"name\":12,\n        \"y\":4896\n      },{\n        \"name\":13,\n        \"y\":3233\n      },{\n        \"name\":14,\n        \"y\":3542\n      },{\n        \"name\":15,\n        \"y\":4138\n      },{\n        \"name\":16,\n        \"y\":4604\n      },{\n        \"name\":17,\n        \"y\":6164\n      },{\n        \"name\":18,\n        \"y\":6195\n      },{\n        \"name\":19,\n        \"y\":4631\n      },{\n        \"name\":20,\n        \"y\":4037\n      },{\n        \"name\":21,\n        \"y\":3902\n      },{\n        \"name\":22,\n        \"y\":3694\n      },{\n        \"name\":23,\n        \"y\":3455\n      }]\n    },{\n      \"id\":\"Category\u003dWARRANTS\",\n      \"name\":\"Category\u003dWARRANTS\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":3964\n      },{\n        \"name\":1,\n        \"y\":2707\n      },{\n        \"name\":2,\n        \"y\":2240\n      },{\n        \"name\":3,\n        \"y\":1733\n      },{\n        \"name\":4,\n        \"y\":1328\n      },{\n        \"name\":5,\n        \"y\":941\n      },{\n        \"name\":6,\n        \"y\":1624\n      },{\n        \"name\":7,\n        \"y\":3160\n      },{\n        \"name\":8,\n        \"y\":3684\n      },{\n        \"name\":9,\n        \"y\":4311\n      },{\n        \"name\":10,\n        \"y\":4685\n      },{\n        \"name\":11,\n        \"y\":4989\n      },{\n        \"name\":12,\n        \"y\":5313\n      },{\n        \"name\":13,\n        \"y\":5649\n      },{\n        \"name\":14,\n        \"y\":5803\n      },{\n        \"name\":15,\n        \"y\":5717\n      },{\n        \"name\":16,\n        \"y\":6277\n      },{\n        \"name\":17,\n        \"y\":6433\n      },{\n        \"name\":18,\n        \"y\":5847\n      },{\n        \"name\":19,\n        \"y\":5080\n      },{\n        \"name\":20,\n        \"y\":4115\n      },{\n        \"name\":21,\n        \"y\":3930\n      },{\n        \"name\":22,\n        \"y\":4723\n      },{\n        \"name\":23,\n        \"y\":4363\n      }]\n    },{\n      \"id\":\"Category\u003dVANDALISM\",\n      \"name\":\"Category\u003dVANDALISM\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":6317\n      },{\n        \"name\":1,\n        \"y\":4435\n      },{\n        \"name\":2,\n        \"y\":4173\n      },{\n        \"name\":3,\n        \"y\":2782\n      },{\n        \"name\":4,\n        \"y\":1874\n      },{\n        \"name\":5,\n        \"y\":1536\n      },{\n        \"name\":6,\n        \"y\":1765\n      },{\n        \"name\":7,\n        \"y\":2418\n      },{\n        \"name\":8,\n        \"y\":3519\n      },{\n        \"name\":9,\n        \"y\":3287\n      },{\n        \"name\":10,\n        \"y\":3428\n      },{\n        \"name\":11,\n        \"y\":3243\n      },{\n        \"name\":12,\n        \"y\":4411\n      },{\n        \"name\":13,\n        \"y\":3416\n      },{\n        \"name\":14,\n        \"y\":3883\n      },{\n        \"name\":15,\n        \"y\":4574\n      },{\n        \"name\":16,\n        \"y\":5070\n      },{\n        \"name\":17,\n        \"y\":6781\n      },{\n        \"name\":18,\n        \"y\":8039\n      },{\n        \"name\":19,\n        \"y\":7265\n      },{\n        \"name\":20,\n        \"y\":7214\n      },{\n        \"name\":21,\n        \"y\":7379\n      },{\n        \"name\":22,\n        \"y\":7549\n      },{\n        \"name\":23,\n        \"y\":6872\n      }]\n    },{\n      \"id\":\"Category\u003dDRUG/NARCOTIC\",\n      \"name\":\"Category\u003dDRUG/NARCOTIC\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":3717\n      },{\n        \"name\":1,\n        \"y\":2257\n      },{\n        \"name\":2,\n        \"y\":1816\n      },{\n        \"name\":3,\n        \"y\":1238\n      },{\n        \"name\":4,\n        \"y\":906\n      },{\n        \"name\":5,\n        \"y\":467\n      },{\n        \"name\":6,\n        \"y\":1325\n      },{\n        \"name\":7,\n        \"y\":2991\n      },{\n        \"name\":8,\n        \"y\":3962\n      },{\n        \"name\":9,\n        \"y\":4655\n      },{\n        \"name\":10,\n        \"y\":5219\n      },{\n        \"name\":11,\n        \"y\":5807\n      },{\n        \"name\":12,\n        \"y\":6024\n      },{\n        \"name\":13,\n        \"y\":7809\n      },{\n        \"name\":14,\n        \"y\":8846\n      },{\n        \"name\":15,\n        \"y\":8162\n      },{\n        \"name\":16,\n        \"y\":8541\n      },{\n        \"name\":17,\n        \"y\":8819\n      },{\n        \"name\":18,\n        \"y\":7828\n      },{\n        \"name\":19,\n        \"y\":6659\n      },{\n        \"name\":20,\n        \"y\":5085\n      },{\n        \"name\":21,\n        \"y\":4780\n      },{\n        \"name\":22,\n        \"y\":5666\n      },{\n        \"name\":23,\n        \"y\":4858\n      }]\n    },{\n      \"id\":\"Category\u003dVEHICLE THEFT\",\n      \"name\":\"Category\u003dVEHICLE THEFT\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":4685\n      },{\n        \"name\":1,\n        \"y\":3200\n      },{\n        \"name\":2,\n        \"y\":2536\n      },{\n        \"name\":3,\n        \"y\":1563\n      },{\n        \"name\":4,\n        \"y\":1208\n      },{\n        \"name\":5,\n        \"y\":1212\n      },{\n        \"name\":6,\n        \"y\":1783\n      },{\n        \"name\":7,\n        \"y\":3084\n      },{\n        \"name\":8,\n        \"y\":4412\n      },{\n        \"name\":9,\n        \"y\":4322\n      },{\n        \"name\":10,\n        \"y\":4055\n      },{\n        \"name\":11,\n        \"y\":3628\n      },{\n        \"name\":12,\n        \"y\":5348\n      },{\n        \"name\":13,\n        \"y\":3800\n      },{\n        \"name\":14,\n        \"y\":4465\n      },{\n        \"name\":15,\n        \"y\":5274\n      },{\n        \"name\":16,\n        \"y\":6253\n      },{\n        \"name\":17,\n        \"y\":8300\n      },{\n        \"name\":18,\n        \"y\":10130\n      },{\n        \"name\":19,\n        \"y\":8860\n      },{\n        \"name\":20,\n        \"y\":9290\n      },{\n        \"name\":21,\n        \"y\":8955\n      },{\n        \"name\":22,\n        \"y\":9465\n      },{\n        \"name\":23,\n        \"y\":8237\n      }]\n    },{\n      \"id\":\"Category\u003dASSAULT\",\n      \"name\":\"Category\u003dASSAULT\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":10509\n      },{\n        \"name\":1,\n        \"y\":8957\n      },{\n        \"name\":2,\n        \"y\":8133\n      },{\n        \"name\":3,\n        \"y\":4150\n      },{\n        \"name\":4,\n        \"y\":2606\n      },{\n        \"name\":5,\n        \"y\":2066\n      },{\n        \"name\":6,\n        \"y\":2760\n      },{\n        \"name\":7,\n        \"y\":4093\n      },{\n        \"name\":8,\n        \"y\":6284\n      },{\n        \"name\":9,\n        \"y\":6909\n      },{\n        \"name\":10,\n        \"y\":7692\n      },{\n        \"name\":11,\n        \"y\":8088\n      },{\n        \"name\":12,\n        \"y\":10112\n      },{\n        \"name\":13,\n        \"y\":8774\n      },{\n        \"name\":14,\n        \"y\":8890\n      },{\n        \"name\":15,\n        \"y\":9991\n      },{\n        \"name\":16,\n        \"y\":9836\n      },{\n        \"name\":17,\n        \"y\":9995\n      },{\n        \"name\":18,\n        \"y\":9863\n      },{\n        \"name\":19,\n        \"y\":9617\n      },{\n        \"name\":20,\n        \"y\":9516\n      },{\n        \"name\":21,\n        \"y\":9908\n      },{\n        \"name\":22,\n        \"y\":9465\n      },{\n        \"name\":23,\n        \"y\":8995\n      }]\n    },{\n      \"id\":\"Category\u003dNON-CRIMINAL\",\n      \"name\":\"Category\u003dNON-CRIMINAL\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":10376\n      },{\n        \"name\":1,\n        \"y\":5648\n      },{\n        \"name\":2,\n        \"y\":4405\n      },{\n        \"name\":3,\n        \"y\":3004\n      },{\n        \"name\":4,\n        \"y\":2172\n      },{\n        \"name\":5,\n        \"y\":2169\n      },{\n        \"name\":6,\n        \"y\":4038\n      },{\n        \"name\":7,\n        \"y\":6617\n      },{\n        \"name\":8,\n        \"y\":9917\n      },{\n        \"name\":9,\n        \"y\":11071\n      },{\n        \"name\":10,\n        \"y\":12323\n      },{\n        \"name\":11,\n        \"y\":12343\n      },{\n        \"name\":12,\n        \"y\":16880\n      },{\n        \"name\":13,\n        \"y\":13213\n      },{\n        \"name\":14,\n        \"y\":13147\n      },{\n        \"name\":15,\n        \"y\":13780\n      },{\n        \"name\":16,\n        \"y\":13854\n      },{\n        \"name\":17,\n        \"y\":12984\n      },{\n        \"name\":18,\n        \"y\":12269\n      },{\n        \"name\":19,\n        \"y\":10691\n      },{\n        \"name\":20,\n        \"y\":9940\n      },{\n        \"name\":21,\n        \"y\":9753\n      },{\n        \"name\":22,\n        \"y\":9600\n      },{\n        \"name\":23,\n        \"y\":8827\n      }]\n    },{\n      \"id\":\"Category\u003dOTHER OFFENSES\",\n      \"name\":\"Category\u003dOTHER OFFENSES\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":18261\n      },{\n        \"name\":1,\n        \"y\":8632\n      },{\n        \"name\":2,\n        \"y\":7116\n      },{\n        \"name\":3,\n        \"y\":4723\n      },{\n        \"name\":4,\n        \"y\":3541\n      },{\n        \"name\":5,\n        \"y\":2782\n      },{\n        \"name\":6,\n        \"y\":4053\n      },{\n        \"name\":7,\n        \"y\":8080\n      },{\n        \"name\":8,\n        \"y\":12545\n      },{\n        \"name\":9,\n        \"y\":14119\n      },{\n        \"name\":10,\n        \"y\":13777\n      },{\n        \"name\":11,\n        \"y\":13634\n      },{\n        \"name\":12,\n        \"y\":19421\n      },{\n        \"name\":13,\n        \"y\":15073\n      },{\n        \"name\":14,\n        \"y\":15165\n      },{\n        \"name\":15,\n        \"y\":16006\n      },{\n        \"name\":16,\n        \"y\":17664\n      },{\n        \"name\":17,\n        \"y\":18474\n      },{\n        \"name\":18,\n        \"y\":16950\n      },{\n        \"name\":19,\n        \"y\":14432\n      },{\n        \"name\":20,\n        \"y\":12444\n      },{\n        \"name\":21,\n        \"y\":12513\n      },{\n        \"name\":22,\n        \"y\":15527\n      },{\n        \"name\":23,\n        \"y\":14925\n      }]\n    },{\n      \"id\":\"Category\u003dLARCENY/THEFT\",\n      \"name\":\"Category\u003dLARCENY/THEFT\",\n      \"data\":[{\n        \"name\":0,\n        \"y\":18105\n      },{\n        \"name\":1,\n        \"y\":11208\n      },{\n        \"name\":2,\n        \"y\":7347\n      },{\n        \"name\":3,\n        \"y\":4579\n      },{\n        \"name\":4,\n        \"y\":2973\n      },{\n        \"name\":5,\n        \"y\":2982\n      },{\n        \"name\":6,\n        \"y\":4711\n      },{\n        \"name\":7,\n        \"y\":7453\n      },{\n        \"name\":8,\n        \"y\":12543\n      },{\n        \"name\":9,\n        \"y\":14879\n      },{\n        \"name\":10,\n        \"y\":18511\n      },{\n        \"name\":11,\n        \"y\":20390\n      },{\n        \"name\":12,\n        \"y\":26274\n      },{\n        \"name\":13,\n        \"y\":23353\n      },{\n        \"name\":14,\n        \"y\":24185\n      },{\n        \"name\":15,\n        \"y\":25758\n      },{\n        \"name\":16,\n        \"y\":26892\n      },{\n        \"name\":17,\n        \"y\":30560\n      },{\n        \"name\":18,\n        \"y\":36233\n      },{\n        \"name\":19,\n        \"y\":33950\n      },{\n        \"name\":20,\n        \"y\":29580\n      },{\n        \"name\":21,\n        \"y\":25069\n      },{\n        \"name\":22,\n        \"y\":24671\n      },{\n        \"name\":23,\n        \"y\":22415\n      }]\n    }]\n  },\n  \"xAxis\":{\n    \"type\":\"category\"\n  },\n  \"chart\":{\n    \"type\":\"column\"\n  }\n}\n\n$(\"#highcharts_d6a26b70_df51_4fff_b8eb_8cee3652ea15\").highcharts(data)\n});\n\u003c/script\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509369537402_889338822",
+      "id": "20171030-131857_797149362",
+      "dateCreated": "Oct 30, 2017 1:18:57 PM",
+      "dateStarted": "Oct 30, 2017 1:40:07 PM",
+      "dateFinished": "Oct 30, 2017 1:40:59 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "highcharts(df\n    .series(\"name\" -\u003e \"DayOfWeek\", \"y\" -\u003e count(\"*\"))\n  ).chart(Chart.column).xAxis(new XAxis(\"Day of Week\").typ(\"category\").categories(\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\", \"Sunday\")).\n  plot",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 8:21:46 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\n\u003cdiv id\u003d\"highcharts_2e3e538f_656a_4f8b_b3f7_dfd46c3c66e4\" style\u003d\"min-width: 310px; height: 400px; margin: 0 auto\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\n$(function () {\nvar data \u003d {\n  \"series\":[{\n    \"data\":[{\n      \"name\":\"Wednesday\",\n      \"y\":312167\n    },{\n      \"name\":\"Tuesday\",\n      \"y\":303841\n    },{\n      \"name\":\"Friday\",\n      \"y\":325295\n    },{\n      \"name\":\"Thursday\",\n      \"y\":304492\n    },{\n      \"name\":\"Saturday\",\n      \"y\":308589\n    },{\n      \"name\":\"Monday\",\n      \"y\":295217\n    },{\n      \"name\":\"Sunday\",\n      \"y\":283427\n    }]\n  }],\n  \"xAxis\":{\n    \"type\":\"category\",\n    \"categories\":[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\",\"Sunday\"],\n    \"title\":{\n      \"text\":\"Day of Week\"\n    }\n  },\n  \"chart\":{\n    \"type\":\"column\"\n  }\n}\n\n$(\"#highcharts_2e3e538f_656a_4f8b_b3f7_dfd46c3c66e4\").highcharts(data)\n});\n\u003c/script\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509180571485_1183848870",
+      "id": "20171028-084931_143161519",
+      "dateCreated": "Oct 28, 2017 8:49:31 AM",
+      "dateStarted": "Oct 30, 2017 8:21:46 AM",
+      "dateFinished": "Oct 30, 2017 8:21:47 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val categories \u003d dfRich.select(\"Category\").distinct.collect.map(_.get(0).toString)",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 1:52:28 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\ncategories: Array[String] \u003d Array(FRAUD, SUICIDE, LIQUOR LAWS, SECONDARY CODES, FAMILY OFFENSES, MISSING PERSON, OTHER OFFENSES, DRIVING UNDER THE INFLUENCE, WARRANTS, ARSON, FORGERY/COUNTERFEITING, GAMBLING, BRIBERY, ASSAULT, DRUNKENNESS, EXTORTION, TREA, WEAPON LAWS, LOITERING, SUSPICIOUS OCC, ROBBERY, SEX OFFENSES, FORCIBLE, PROSTITUTION, EMBEZZLEMENT, BAD CHECKS, DISORDERLY CONDUCT, RUNAWAY, RECOVERED VEHICLE, VANDALISM, DRUG/NARCOTIC, PORNOGRAPHY/OBSCENE MAT, TRESPASS, NON-CRIMINAL, VEHICLE THEFT, STOLEN PROPERTY, LARCENY/THEFT, KIDNAPPING, BURGLARY, SEX OFFENSES, NON FORCIBLE)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509371500454_-1610803335",
+      "id": "20171030-135140_52334138",
+      "dateCreated": "Oct 30, 2017 1:51:40 PM",
+      "dateStarted": "Oct 30, 2017 1:52:28 PM",
+      "dateFinished": "Oct 30, 2017 1:52:28 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "dfRich.filter($\"Category\" \u003d\u003d\u003d category).show",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 1:53:58 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+--------+--------------------+---------+-----+----------+--------------+--------------------+-----------------+----------------+--------------------+--------------+--------------------+----------+----+-----+--------+---+---------+----+------+\n|IncidntNum|Category|            Descript|DayOfWeek| Time|PdDistrict|    Resolution|             Address|                X|               Y|            Location|          PdId|            RichDate|      date|year|month|monthDay|day|dayOfYear|hour|minute|\n+----------+--------+--------------------+---------+-----+----------+--------------+--------------------+-----------------+----------------+--------------------+--------------+--------------------+----------+----+-----+--------+---+---------+----+------+\n| 140042001|   FRAUD|CREDIT CARD, THEF...|Wednesday|12:30|   CENTRAL|          NONE|SANSOME ST / BUSH ST|-122.400748631911|37.7911776792224|(37.7911776792224...|14004200109320|[2014-01-15,01/15...|2014-01-15|2014|    0|   01/15| 15|       15|  12|    30|\n| 150101277|   FRAUD|CREDIT CARD, THEF...|   Sunday|01:15|  NORTHERN|          NONE|2000 Block of GRE...| -122.43340738035|37.7992089703227|(37.7992089703227...|15010127709320|[2015-02-01,02/01...|2015-02-01|2015|    1|   02/01|  1|       32|   1|    15|\n| 150101302|   FRAUD|CREDIT CARD, THEF...|   Monday|00:01|   BAYVIEW|     UNFOUNDED|200 Block of WILL...|-122.397744427103|37.7299346936044|(37.7299346936044...|15010130209320|[2015-02-02,02/02...|2015-02-02|2015|    1|   02/02|  2|       33|   0|     1|\n| 150101380|   FRAUD|CREDIT CARD, THEF...| Thursday|22:30|   CENTRAL|ARREST, BOOKED|500 Block of SUTT...|-122.409445484488| 37.789173205941|(37.789173205941,...|15010138009320|[2015-01-29,01/29...|2015-01-29|2015|    0|   01/29| 29|       29|  22|    30|\n| 150102190|   FRAUD|CREDIT CARD, THEF...|   Monday|19:46|  NORTHERN|          NONE|1300 Block of CHE...|-122.425559149319|37.8021201877107|(37.8021201877107...|15010219009320|[2015-02-02,02/02...|2015-02-02|2015|    1|   02/02|  2|       33|  19|    46|\n| 150103370|   FRAUD|CREDIT CARD, THEF...|   Sunday|15:30|   CENTRAL|          NONE|400 Block of NORT...|-122.414613835412|37.8063927876763|(37.8063927876763...|15010337009320|[2015-02-01,02/01...|2015-02-01|2015|    1|   02/01|  1|       32|  15|    30|\n| 150103370|   FRAUD|DEFRAUDING AN INN...|   Sunday|15:30|   CENTRAL|          NONE|400 Block of NORT...|-122.414613835412|37.8063927876763|(37.8063927876763...|15010337027010|[2015-02-01,02/01...|2015-02-01|2015|    1|   02/01|  1|       32|  15|    30|\n| 150103427|   FRAUD|FRAUDULENT USE OF...|  Tuesday|05:30|   MISSION|          NONE|16TH ST / POTRERO AV|-122.407538332319|37.7657827544276|(37.7657827544276...|15010342709250|[2015-02-03,02/03...|2015-02-03|2015|    1|   02/03|  3|       34|   5|    30|\n| 150104293|   FRAUD|FRAUDULENT USE OF...|   Monday|19:00|  SOUTHERN|          NONE| 500 Block of 9TH ST|-122.407702149718|37.7706967930865|(37.7706967930865...|15010429309250|[2015-02-02,02/02...|2015-02-02|2015|    1|   02/02|  2|       33|  19|     0|\n| 150104776|   FRAUD|CREDIT CARD, THEF...|   Sunday|19:00|   MISSION|          NONE|2900 Block of 16T...| -122.41920245941|37.7650244301204|(37.7650244301204...|15010477609320|[2015-02-01,02/01...|2015-02-01|2015|    1|   02/01|  1|       32|  19|     0|\n| 150104867|   FRAUD|FALSE PRETENSES, ...| Thursday|09:02|   CENTRAL|          NONE|400 Block of GRAN...|-122.405716064431|37.7910323101921|(37.7910323101921...|15010486710125|[2015-01-29,01/29...|2015-01-29|2015|    0|   01/29| 29|       29|   9|     2|\n| 150105633|   FRAUD|CREDIT CARD, THEF...|  Tuesday|21:00|  SOUTHERN|ARREST, BOOKED|0 Block of UNITED...|-122.414317857881|37.7799444052046|(37.7799444052046...|15010563309310|[2015-02-03,02/03...|2015-02-03|2015|    1|   02/03|  3|       34|  21|     0|\n| 150105633|   FRAUD|FALSE ID TO PEACE...|  Tuesday|21:00|  SOUTHERN|ARREST, BOOKED|0 Block of UNITED...|-122.414317857881|37.7799444052046|(37.7799444052046...|15010563327065|[2015-02-03,02/03...|2015-02-03|2015|    1|   02/03|  3|       34|  21|     0|\n| 150107009|   FRAUD|CREDIT CARD, THEF...|   Monday|23:38|TENDERLOIN|          NONE|0 Block of POWELL ST|-122.407845374111|37.7850943210103|(37.7850943210103...|15010700909320|[2015-02-02,02/02...|2015-02-02|2015|    1|   02/02|  2|       33|  23|    38|\n| 150107106|   FRAUD|CREDIT CARD, THEF...|  Tuesday|12:10|   CENTRAL|          NONE|400 Block of POST ST|-122.409256096494| 37.788239899778|(37.788239899778,...|15010710609320|[2015-01-27,01/27...|2015-01-27|2015|    0|   01/27| 27|       27|  12|    10|\n| 150107849|   FRAUD|CREDIT CARD, THEF...|Wednesday|09:41|  NORTHERN|          NONE|1300 Block of WEB...|-122.431046366089|37.7830295716044|(37.7830295716044...|15010784909320|[2015-02-04,02/04...|2015-02-04|2015|    1|   02/04|  4|       35|   9|    41|\n| 150108869|   FRAUD|CREDIT CARD, THEF...|Wednesday|12:20|   MISSION|ARREST, BOOKED|2300 Block of 16T...|-122.409529913278|37.7657184395282|(37.7657184395282...|15010886909320|[2015-02-04,02/04...|2015-02-04|2015|    1|   02/04|  4|       35|  12|    20|\n| 150109118|   FRAUD|DEFRAUDING AN INN...|Wednesday|18:58|   CENTRAL|ARREST, BOOKED|2400 Block of MAS...|-122.413765578666|37.8060871401325|(37.8060871401325...|15010911827010|[2015-02-04,02/04...|2015-02-04|2015|    1|   02/04|  4|       35|  18|    58|\n| 150109419|   FRAUD|DEFRAUDING AN INN...|Wednesday|20:07|   TARAVAL|          NONE|DENSLOWE DR / LYN...|-122.474247765423|37.7240814171246|(37.7240814171246...|15010941927010|[2015-02-04,02/04...|2015-02-04|2015|    1|   02/04|  4|       35|  20|     7|\n| 150109663|   FRAUD|DEFRAUDING AN INN...|Wednesday|21:00|   CENTRAL|          NONE|0 Block of JEFFER...| -122.41337058114|37.8085752673964|(37.8085752673964...|15010966327010|[2015-02-04,02/04...|2015-02-04|2015|    1|   02/04|  4|       35|  21|     0|\n+----------+--------+--------------------+---------+-----+----------+--------------+--------------------+-----------------+----------------+--------------------+--------------+--------------------+----------+----+-----+--------+---+---------+----+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509371619047_-1268175956",
+      "id": "20171030-135339_1322950132",
+      "dateCreated": "Oct 30, 2017 1:53:39 PM",
+      "dateStarted": "Oct 30, 2017 1:53:58 PM",
+      "dateFinished": "Oct 30, 2017 1:53:58 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val category \u003d z.select(\"Category\", \"FRAUD\", categories.map(s \u003d\u003e (s, s))).toString\nval green \u003d \"#2ca02c\"\nval lightGreen \u003d \"#98df8a\"\nval yellow \u003d \"#FFFF00\"\nval orange \u003d \"#ff7f0e\"\nval red \u003d \"#ff0000\"\nval stops \u003d Seq(Seq(0, green), Seq(0.3, lightGreen), Seq(0.5, yellow), Seq(0.7, orange), Seq(1, red))\nhighcharts(dfRich.filter($\"Category\" \u003d\u003d\u003d category)\n  .series(\"x\" -\u003e \"dayInWeek\", \"y\" -\u003e \"hour\", \"value\" -\u003e count(\"*\")).orderBy($\"dayOfWeek\", $\"hour\")\n  ).chart(Chart.heatmap).title(s\"Reports $category During the Week\").xAxis(new XAxis(\"day\").typ(\"category\")).plot",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 1:58:13 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "runOnSelectionChange": true
+      },
+      "settings": {
+        "params": {
+          "Category": "FRAUD"
+        },
+        "forms": {
+          "Category": {
+            "name": "Category",
+            "displayName": "Category",
+            "type": "select",
+            "defaultValue": "FRAUD",
+            "options": [
+              {
+                "value": "FRAUD",
+                "displayName": "FRAUD"
+              },
+              {
+                "value": "SUICIDE",
+                "displayName": "SUICIDE"
+              },
+              {
+                "value": "LIQUOR LAWS",
+                "displayName": "LIQUOR LAWS"
+              },
+              {
+                "value": "SECONDARY CODES",
+                "displayName": "SECONDARY CODES"
+              },
+              {
+                "value": "FAMILY OFFENSES",
+                "displayName": "FAMILY OFFENSES"
+              },
+              {
+                "value": "MISSING PERSON",
+                "displayName": "MISSING PERSON"
+              },
+              {
+                "value": "OTHER OFFENSES",
+                "displayName": "OTHER OFFENSES"
+              },
+              {
+                "value": "DRIVING UNDER THE INFLUENCE",
+                "displayName": "DRIVING UNDER THE INFLUENCE"
+              },
+              {
+                "value": "WARRANTS",
+                "displayName": "WARRANTS"
+              },
+              {
+                "value": "ARSON",
+                "displayName": "ARSON"
+              },
+              {
+                "value": "FORGERY/COUNTERFEITING",
+                "displayName": "FORGERY/COUNTERFEITING"
+              },
+              {
+                "value": "GAMBLING",
+                "displayName": "GAMBLING"
+              },
+              {
+                "value": "BRIBERY",
+                "displayName": "BRIBERY"
+              },
+              {
+                "value": "ASSAULT",
+                "displayName": "ASSAULT"
+              },
+              {
+                "value": "DRUNKENNESS",
+                "displayName": "DRUNKENNESS"
+              },
+              {
+                "value": "EXTORTION",
+                "displayName": "EXTORTION"
+              },
+              {
+                "value": "TREA",
+                "displayName": "TREA"
+              },
+              {
+                "value": "WEAPON LAWS",
+                "displayName": "WEAPON LAWS"
+              },
+              {
+                "value": "LOITERING",
+                "displayName": "LOITERING"
+              },
+              {
+                "value": "SUSPICIOUS OCC",
+                "displayName": "SUSPICIOUS OCC"
+              },
+              {
+                "value": "ROBBERY",
+                "displayName": "ROBBERY"
+              },
+              {
+                "value": "SEX OFFENSES, FORCIBLE",
+                "displayName": "SEX OFFENSES, FORCIBLE"
+              },
+              {
+                "value": "PROSTITUTION",
+                "displayName": "PROSTITUTION"
+              },
+              {
+                "value": "EMBEZZLEMENT",
+                "displayName": "EMBEZZLEMENT"
+              },
+              {
+                "value": "BAD CHECKS",
+                "displayName": "BAD CHECKS"
+              },
+              {
+                "value": "DISORDERLY CONDUCT",
+                "displayName": "DISORDERLY CONDUCT"
+              },
+              {
+                "value": "RUNAWAY",
+                "displayName": "RUNAWAY"
+              },
+              {
+                "value": "RECOVERED VEHICLE",
+                "displayName": "RECOVERED VEHICLE"
+              },
+              {
+                "value": "VANDALISM",
+                "displayName": "VANDALISM"
+              },
+              {
+                "value": "DRUG/NARCOTIC",
+                "displayName": "DRUG/NARCOTIC"
+              },
+              {
+                "value": "PORNOGRAPHY/OBSCENE MAT",
+                "displayName": "PORNOGRAPHY/OBSCENE MAT"
+              },
+              {
+                "value": "TRESPASS",
+                "displayName": "TRESPASS"
+              },
+              {
+                "value": "NON-CRIMINAL",
+                "displayName": "NON-CRIMINAL"
+              },
+              {
+                "value": "VEHICLE THEFT",
+                "displayName": "VEHICLE THEFT"
+              },
+              {
+                "value": "STOLEN PROPERTY",
+                "displayName": "STOLEN PROPERTY"
+              },
+              {
+                "value": "LARCENY/THEFT",
+                "displayName": "LARCENY/THEFT"
+              },
+              {
+                "value": "KIDNAPPING",
+                "displayName": "KIDNAPPING"
+              },
+              {
+                "value": "BURGLARY",
+                "displayName": "BURGLARY"
+              },
+              {
+                "value": "SEX OFFENSES, NON FORCIBLE",
+                "displayName": "SEX OFFENSES, NON FORCIBLE"
+              }
+            ],
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\ncategory: String \u003d FRAUD\n\ngreen: String \u003d #2ca02c\n\nlightGreen: String \u003d #98df8a\n\nyellow: String \u003d #FFFF00\n\norange: String \u003d #ff7f0e\n\nred: String \u003d #ff0000\n\nstops: Seq[Seq[Any]] \u003d List(List(0, #2ca02c), List(0.3, #98df8a), List(0.5, #FFFF00), List(0.7, #ff7f0e), List(1, #ff0000))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\norg.apache.spark.sql.AnalysisException: cannot resolve \u0027`dayInWeek`\u0027 given input columns: [year, Resolution, Category, DayOfWeek, Location, date, minute, Descript, RichDate, X, PdId, monthDay, Time, hour, IncidntNum, day, dayOfYear, month, Y, Address, PdDistrict];;\n\u0027Aggregate [\u0027dayInWeek, hour#6157], [\u0027dayInWeek, hour#6157, count(1) AS count(1)#32277L]\n+- Filter (Category#4595 \u003d FRAUD)\n   +- Project [IncidntNum#4594, Category#4595, Descript#4596, DayOfWeek#4597, Time#4599, PdDistrict#4600, Resolution#4601, Address#4602, X#4603, Y#4604, Location#4605, PdId#4606, RichDate#6010, date#6040, year#6057, month#6075, monthDay#6094, day#6114, dayOfYear#6135, hour#6157, RichDate#6010.minute AS minute#6180]\n      +- Project [IncidntNum#4594, Category#4595, Descript#4596, DayOfWeek#4597, Time#4599, PdDistrict#4600, Resolution#4601, Address#4602, X#4603, Y#4604, Location#4605, PdId#4606, RichDate#6010, date#6040, year#6057, month#6075, monthDay#6094, day#6114, dayOfYear#6135, RichDate#6010.hour AS hour#6157]\n         +- Project [IncidntNum#4594, Category#4595, Descript#4596, DayOfWeek#4597, Time#4599, PdDistrict#4600, Resolution#4601, Address#4602, X#4603, Y#4604, Location#4605, PdId#4606, RichDate#6010, date#6040, year#6057, month#6075, monthDay#6094, day#6114, RichDate#6010.dayOfYear AS dayOfYear#6135]\n            +- Project [IncidntNum#4594, Category#4595, Descript#4596, DayOfWeek#4597, Time#4599, PdDistrict#4600, Resolution#4601, Address#4602, X#4603, Y#4604, Location#4605, PdId#4606, RichDate#6010, date#6040, year#6057, month#6075, monthDay#6094, RichDate#6010.day AS day#6114]\n               +- Project [IncidntNum#4594, Category#4595, Descript#4596, DayOfWeek#4597, Time#4599, PdDistrict#4600, Resolution#4601, Address#4602, X#4603, Y#4604, Location#4605, PdId#4606, RichDate#6010, date#6040, year#6057, month#6075, RichDate#6010.monthDay AS monthDay#6094]\n                  +- Project [IncidntNum#4594, Category#4595, Descript#4596, DayOfWeek#4597, Time#4599, PdDistrict#4600, Resolution#4601, Address#4602, X#4603, Y#4604, Location#4605, PdId#4606, RichDate#6010, date#6040, year#6057, RichDate#6010.month AS month#6075]\n                     +- Project [IncidntNum#4594, Category#4595, Descript#4596, DayOfWeek#4597, Time#4599, PdDistrict#4600, Resolution#4601, Address#4602, X#4603, Y#4604, Location#4605, PdId#4606, RichDate#6010, date#6040, RichDate#6010.year AS year#6057]\n                        +- Project [IncidntNum#4594, Category#4595, Descript#4596, DayOfWeek#4597, Time#4599, PdDistrict#4600, Resolution#4601, Address#4602, X#4603, Y#4604, Location#4605, PdId#4606, RichDate#6010, RichDate#6010.date AS date#6040]\n                           +- Project [IncidntNum#4594, Category#4595, Descript#4596, DayOfWeek#4597, Time#4599, PdDistrict#4600, Resolution#4601, Address#4602, X#4603, Y#4604, Location#4605, PdId#4606, RichDate#6010]\n                              +- Project [IncidntNum#4594, Category#4595, Descript#4596, DayOfWeek#4597, Date#4598, Time#4599, PdDistrict#4600, Resolution#4601, Address#4602, X#4603, Y#4604, Location#4605, PdId#4606, UDF(Date#4598, Time#4599) AS RichDate#6010]\n                                 +- Relation[IncidntNum#4594,Category#4595,Descript#4596,DayOfWeek#4597,Date#4598,Time#4599,PdDistrict#4600,Resolution#4601,Address#4602,X#4603,Y#4604,Location#4605,PdId#4606] parquet\n\n  at org.apache.spark.sql.catalyst.analysis.package$AnalysisErrorAt.failAnalysis(package.scala:42)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$2.applyOrElse(CheckAnalysis.scala:77)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$2.applyOrElse(CheckAnalysis.scala:74)\n  at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$transformUp$1.apply(TreeNode.scala:310)\n  at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$transformUp$1.apply(TreeNode.scala:310)\n  at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:70)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.transformUp(TreeNode.scala:309)\n  at org.apache.spark.sql.catalyst.plans.QueryPlan.transformExpressionUp$1(QueryPlan.scala:282)\n  at org.apache.spark.sql.catalyst.plans.QueryPlan.org$apache$spark$sql$catalyst$plans$QueryPlan$$recursiveTransform$2(QueryPlan.scala:292)\n  at org.apache.spark.sql.catalyst.plans.QueryPlan$$anonfun$org$apache$spark$sql$catalyst$plans$QueryPlan$$recursiveTransform$2$1.apply(QueryPlan.scala:296)\n  at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:234)\n  at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:234)\n  at scala.collection.immutable.List.foreach(List.scala:381)\n  at scala.collection.TraversableLike$class.map(TraversableLike.scala:234)\n  at scala.collection.immutable.List.map(List.scala:285)\n  at org.apache.spark.sql.catalyst.plans.QueryPlan.org$apache$spark$sql$catalyst$plans$QueryPlan$$recursiveTransform$2(QueryPlan.scala:296)\n  at org.apache.spark.sql.catalyst.plans.QueryPlan$$anonfun$7.apply(QueryPlan.scala:301)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.mapProductIterator(TreeNode.scala:188)\n  at org.apache.spark.sql.catalyst.plans.QueryPlan.transformExpressionsUp(QueryPlan.scala:301)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.apply(CheckAnalysis.scala:74)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.apply(CheckAnalysis.scala:67)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:128)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.checkAnalysis(CheckAnalysis.scala:67)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis(Analyzer.scala:57)\n  at org.apache.spark.sql.execution.QueryExecution.assertAnalyzed(QueryExecution.scala:48)\n  at org.apache.spark.sql.Dataset$.ofRows(Dataset.scala:63)\n  at org.apache.spark.sql.RelationalGroupedDataset.toDF(RelationalGroupedDataset.scala:62)\n  at org.apache.spark.sql.RelationalGroupedDataset.agg(RelationalGroupedDataset.scala:222)\n  at com.knockdata.spark.highcharts.convert$.getRows(convert.scala:68)\n  at com.knockdata.spark.highcharts.convert$.com$knockdata$spark$highcharts$convert$$drilldown(convert.scala:201)\n  at com.knockdata.spark.highcharts.convert$.apply(convert.scala:238)\n  at com.knockdata.spark.highcharts.SeriesHolder.result(SeriesHolder.scala:185)\n  at com.knockdata.spark.highcharts.highcharts$$anonfun$apply$1.apply(highcharts.scala:77)\n  at com.knockdata.spark.highcharts.highcharts$$anonfun$apply$1.apply(highcharts.scala:76)\n  at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)\n  at scala.collection.mutable.WrappedArray.foreach(WrappedArray.scala:35)\n  at com.knockdata.spark.highcharts.highcharts$.apply(highcharts.scala:76)\n  ... 52 elided\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509369103080_-587388753",
+      "id": "20171030-131143_1421537072",
+      "dateCreated": "Oct 30, 2017 1:11:43 PM",
+      "dateStarted": "Oct 30, 2017 1:58:13 PM",
+      "dateFinished": "Oct 30, 2017 1:58:14 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "is_media_news",
+      "user": "anonymous",
+      "dateUpdated": "Oct 28, 2017 9:06:36 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1509181583732_412095127",
+      "id": "20171028-090623_2100587559",
+      "dateCreated": "Oct 28, 2017 9:06:23 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1509181569950_-1199263915",
+      "id": "20171028-090609_1184146149",
+      "dateCreated": "Oct 28, 2017 9:06:09 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Knock SFPD Data",
+  "id": "knock-sfpd-data",
+  "angularObjects": {
+    "2CZFHSVWY:shared_process": [],
+    "2CX3PRM4E:shared_process": [],
+    "2CXZHRZ63:shared_process": [],
+    "2CYWZFK5K:shared_process": [],
+    "2CZCK6K16:shared_process": [],
+    "2CW7TW9ZY:shared_process": [],
+    "2CWJGUCGR:shared_process": [],
+    "2CXH6SABM:shared_process": [],
+    "2CYPXG8C1:shared_process": [],
+    "2CYWUSVMS:shared_process": [],
+    "2CYR4TF7C:shared_process": [],
+    "2CYGHA77X:shared_process": [],
+    "2CXFRMCFN:shared_process": [],
+    "2CXXS6SM3:shared_process": [],
+    "2CWF49RPF:shared_process": [],
+    "2CX1BCZ54:shared_process": [],
+    "2CWXS58V4:shared_process": [],
+    "2CXHVKQX6:shared_process": [],
+    "2CZ4VHSYJ:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

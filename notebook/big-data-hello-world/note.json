@@ -1,0 +1,295 @@
+{
+  "paragraphs": [
+    {
+      "text": "val inputRDD \u003d sc.textFile(\"/data/shakespeare.txt.gz\")",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 9:35:23 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\ninputRDD: org.apache.spark.rdd.RDD[String] \u003d /data/shakespeare.txt.gz MapPartitionsRDD[3] at textFile at \u003cconsole\u003e:27\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509286502765_1492388051",
+      "id": "20171029-141502_1023849037",
+      "dateCreated": "Oct 29, 2017 2:15:02 PM",
+      "dateStarted": "Oct 30, 2017 9:35:23 PM",
+      "dateFinished": "Oct 30, 2017 9:35:23 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val mapRDD \u003d inputRDD.flatMap(line \u003d\u003e line.split(\"\\\\P{L}+\"))",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 9:35:29 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nmapRDD: org.apache.spark.rdd.RDD[String] \u003d MapPartitionsRDD[4] at flatMap at \u003cconsole\u003e:29\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509286470472_1997750536",
+      "id": "20171029-141430_2001996370",
+      "dateCreated": "Oct 29, 2017 2:14:30 PM",
+      "dateStarted": "Oct 30, 2017 9:35:30 PM",
+      "dateFinished": "Oct 30, 2017 9:35:30 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val map2RDD \u003d mapRDD.map(word \u003d\u003e (word, 1))\nval wordCount \u003d map2RDD.reduceByKey((a, b) \u003d\u003e a + b)",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 9:35:33 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nmap2RDD: org.apache.spark.rdd.RDD[(String, Int)] \u003d MapPartitionsRDD[5] at map at \u003cconsole\u003e:31\n\nwordCount: org.apache.spark.rdd.RDD[(String, Int)] \u003d ShuffledRDD[6] at reduceByKey at \u003cconsole\u003e:33\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509286516554_-659512547",
+      "id": "20171029-141516_913901296",
+      "dateCreated": "Oct 29, 2017 2:15:16 PM",
+      "dateStarted": "Oct 30, 2017 9:35:33 PM",
+      "dateFinished": "Oct 30, 2017 9:35:34 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "wordCount.count",
+      "user": "anonymous",
+      "dateUpdated": "Oct 30, 2017 9:35:55 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nres0: Long \u003d 29202\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509315809511_-231241867",
+      "id": "20171029-222329_1737750476",
+      "dateCreated": "Oct 29, 2017 10:23:29 PM",
+      "dateStarted": "Oct 30, 2017 9:35:55 PM",
+      "dateFinished": "Oct 30, 2017 9:35:57 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "wordCount.map(x \u003d\u003e (x._2, x._1)).top(10).mkString(\"\\n\")",
+      "user": "anonymous",
+      "dateUpdated": "Oct 29, 2017 10:24:06 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\n\n\n\n\n\n\n\n\n\n\nres2: String \u003d\n(119162,)\n(23243,the)\n(22225,I)\n(18618,and)\n(16339,to)\n(15687,of)\n(12780,a)\n(12163,you)\n(10839,my)\n(10005,in)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509286654328_-42159129",
+      "id": "20171029-141734_1277481935",
+      "dateCreated": "Oct 29, 2017 2:17:34 PM",
+      "dateStarted": "Oct 29, 2017 10:24:06 PM",
+      "dateFinished": "Oct 29, 2017 10:24:06 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "wordCount.filter(x \u003d\u003e x._2 \u003d\u003d 1).top(20).mkString(\"\\n\")",
+      "user": "anonymous",
+      "dateUpdated": "Oct 29, 2017 10:25:00 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nres4: String \u003d\n(zwagger,1)\n(zone,1)\n(zodiacs,1)\n(zodiac,1)\n(zo,1)\n(zephyrs,1)\n(zenith,1)\n(zed,1)\n(zeals,1)\n(zany,1)\n(zanies,1)\n(youtli,1)\n(younglings,1)\n(yore,1)\n(yongrey,1)\n(yoketh,1)\n(yokefellow,1)\n(yielders,1)\n(yicld,1)\n(yesterdays,1)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509286657179_339896529",
+      "id": "20171029-141737_1460763763",
+      "dateCreated": "Oct 29, 2017 2:17:37 PM",
+      "dateStarted": "Oct 29, 2017 10:25:00 PM",
+      "dateFinished": "Oct 29, 2017 10:25:00 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "wordCount.filter(x \u003d\u003e x._2 \u003d\u003d 2).top(20).mkString(\"\\n\")",
+      "user": "anonymous",
+      "dateUpdated": "Oct 29, 2017 10:25:29 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nres5: String \u003d\n(zounds,2)\n(zir,2)\n(youngly,2)\n(yokes,2)\n(yok,2)\n(yielder,2)\n(yesty,2)\n(yeas,2)\n(yearns,2)\n(yarn,2)\n(yarely,2)\n(wrongful,2)\n(writer,2)\n(wrist,2)\n(wrecked,2)\n(wreaths,2)\n(wreathed,2)\n(wreakful,2)\n(wraths,2)\n(wow,2)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509315923413_-253805779",
+      "id": "20171029-222523_787364335",
+      "dateCreated": "Oct 29, 2017 10:25:23 PM",
+      "dateStarted": "Oct 29, 2017 10:25:29 PM",
+      "dateFinished": "Oct 29, 2017 10:25:29 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1509315959405_1627277566",
+      "id": "20171029-222559_607336760",
+      "dateCreated": "Oct 29, 2017 10:25:59 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Big Data Hello World",
+  "id": "big-data-hello-world",
+  "angularObjects": {
+    "2CZFHSVWY:shared_process": [],
+    "2CX3PRM4E:shared_process": [],
+    "2CXZHRZ63:shared_process": [],
+    "2CYWZFK5K:shared_process": [],
+    "2CZCK6K16:shared_process": [],
+    "2CW7TW9ZY:shared_process": [],
+    "2CWJGUCGR:shared_process": [],
+    "2CXH6SABM:shared_process": [],
+    "2CYPXG8C1:shared_process": [],
+    "2CYWUSVMS:shared_process": [],
+    "2CYR4TF7C:shared_process": [],
+    "2CYGHA77X:shared_process": [],
+    "2CXFRMCFN:shared_process": [],
+    "2CXXS6SM3:shared_process": [],
+    "2CWF49RPF:shared_process": [],
+    "2CX1BCZ54:shared_process": [],
+    "2CWXS58V4:shared_process": [],
+    "2CXHVKQX6:shared_process": [],
+    "2CZ4VHSYJ:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

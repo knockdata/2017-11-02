@@ -1,0 +1,16 @@
+<h2>Word Count in Spark</h2>
+
+<div class="common config all">
+<pre>
+<code class="scala code">val inputRDD = sc.textFile("/data/shakespeare.txt.gz")
+val mapRDD = inputRDD.flatMap(l => l.split("\\P{L}+"))
+val map2RDD = mapRDD.map(word => (word, 1))
+val wordCount = map2RDD.reduceByKey((a, b) => a + b)
+wordCount.collect
+</code></pre></div>
+
+
+<div class="notes">Press the P
+key to access the notes console.
+</div>
+

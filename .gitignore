@@ -1,2 +1,11 @@
-*.class
+node_modules
+bower_components
+package-lock.json
 *.log
+*.parquet
+*.class
+*.swp
+.DS_Store
+*.iml
+spark-warehouse
+sfpd.csv.gz

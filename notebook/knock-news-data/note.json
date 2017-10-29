@@ -1,0 +1,320 @@
+{
+  "paragraphs": [
+    {
+      "text": "import org.apache.spark.sql.functions._\nimport com.knockdata.spark.highcharts._\nimport com.knockdata.spark.highcharts.model._\nspark.version",
+      "user": "anonymous",
+      "dateUpdated": "Oct 29, 2017 9:35:41 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nimport org.apache.spark.sql.functions._\n\nimport com.knockdata.spark.highcharts._\n\nimport com.knockdata.spark.highcharts.model._\n\nres3: String \u003d 2.1.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509179896476_-555013655",
+      "id": "20171028-083816_559868847",
+      "dateCreated": "Oct 28, 2017 8:38:16 AM",
+      "dateStarted": "Oct 29, 2017 9:35:41 AM",
+      "dateFinished": "Oct 29, 2017 9:35:42 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\nls -alh /data\nrm -rf /data/news.meta.parquet",
+      "user": "anonymous",
+      "dateUpdated": "Oct 29, 2017 9:34:06 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "total 21M\ndrwxr-xr-x 4 root root  136 Oct 29 09:31 .\ndrwxr-xr-x 1 root root 4.0K Oct 29 09:33 ..\n-rw-r--r-- 1 root root  11M Oct 29 09:22 news.meta.json.tar.gz\n-rw-r--r-- 1 root root 9.4M Oct 29 09:22 sfpd.csv.tar.gz\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509179362372_813784491",
+      "id": "20171028-082922_1825454271",
+      "dateCreated": "Oct 28, 2017 8:29:22 AM",
+      "dateStarted": "Oct 29, 2017 9:34:06 AM",
+      "dateFinished": "Oct 29, 2017 9:34:06 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val dfJson \u003d spark.read.json(\"/data/news.meta.json.tar.gz\")\ndfJson.write.parquet(\"/data/news.meta.parquet\")",
+      "user": "anonymous",
+      "dateUpdated": "Oct 29, 2017 9:34:32 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\ndfJson: org.apache.spark.sql.DataFrame \u003d [_corrupt_record: string, authors: array\u003cstring\u003e ... 18 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509179621967_-1855250922",
+      "id": "20171028-083341_1951899916",
+      "dateCreated": "Oct 28, 2017 8:33:41 AM",
+      "dateStarted": "Oct 29, 2017 9:34:32 AM",
+      "dateFinished": "Oct 29, 2017 9:34:55 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val df \u003d spark.read.parquet(\"/data/news.meta.parquet\").cache\ndf.count",
+      "user": "anonymous",
+      "dateUpdated": "Oct 29, 2017 9:34:41 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\ndf: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [_corrupt_record: string, authors: array\u003cstring\u003e ... 18 more fields]\n\nres1: Long \u003d 349979\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509179851964_534164509",
+      "id": "20171028-083731_1836261891",
+      "dateCreated": "Oct 28, 2017 8:37:31 AM",
+      "dateStarted": "Oct 29, 2017 9:34:41 AM",
+      "dateFinished": "Oct 29, 2017 9:35:00 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "highcharts(df\n    .series(\"name\" -\u003e \"language\", \"y\" -\u003e count(\"*\"))\n    .orderBy(count(\"*\").desc).take(4)\n    ).chart(Chart.pie).plot",
+      "user": "anonymous",
+      "dateUpdated": "Oct 29, 2017 9:34:53 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\n\u003cdiv id\u003d\"highcharts_2940c4ad_6f18_410b_b4f3_379243838100\" style\u003d\"min-width: 310px; height: 400px; margin: 0 auto\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\n$(function () {\nvar data \u003d {\n  \"series\":[{\n    \"data\":[{\n      \"name\":\"en\",\n      \"y\":288302\n    },{\n      \"name\":\"es\",\n      \"y\":33758\n    },{\n      \"name\":\"zh\",\n      \"y\":16347\n    },{\n      \"name\":\"sv\",\n      \"y\":10111\n    }]\n  }],\n  \"chart\":{\n    \"type\":\"pie\"\n  }\n}\n\n$(\"#highcharts_2940c4ad_6f18_410b_b4f3_379243838100\").highcharts(data)\n});\n\u003c/script\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509180444979_-2147307107",
+      "id": "20171028-084724_1273363465",
+      "dateCreated": "Oct 28, 2017 8:47:24 AM",
+      "dateStarted": "Oct 29, 2017 9:35:00 AM",
+      "dateFinished": "Oct 29, 2017 9:35:03 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "highcharts(df\n    .series(\"name\" -\u003e \"url\", \"y\" -\u003e count(\"*\"))\n    .orderBy(count(\"*\").desc)\n    .take(100)\n  ).chart(Chart.column).\n    plotOptions(PlotOptions.column.groupPadding(0).pointPadding(0).borderWidth(0)).\n  plot",
+      "user": "anonymous",
+      "dateUpdated": "Oct 29, 2017 9:35:51 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\n\u003cdiv id\u003d\"highcharts_f0fb6a7c_d686_44ee_b7bf_b9857ef299a7\" style\u003d\"min-width: 310px; height: 400px; margin: 0 auto\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\n$(function () {\nvar data \u003d {\n  \"series\":[{\n    \"data\":[{\n      \"name\":\"https://www.meneame.net\",\n      \"y\":33758\n    },{\n      \"name\":\"http://www.Indianexpress.com\",\n      \"y\":20030\n    },{\n      \"name\":\"http://www.Seattletimes.com\",\n      \"y\":18866\n    },{\n      \"name\":\"http://www.Dnaindia.com\",\n      \"y\":17613\n    },{\n      \"name\":\"http://www.Theage.com.au\",\n      \"y\":13780\n    },{\n      \"name\":\"http://www.Smh.com.au\",\n      \"y\":13607\n    },{\n      \"name\":\"http://www.Business-standard.com\",\n      \"y\":11055\n    },{\n      \"name\":\"http://www.Washingtontimes.com\",\n      \"y\":9990\n    },{\n      \"name\":\"http://www.Gmw.cn\",\n      \"y\":9046\n    },{\n      \"name\":\"http://www.Mathrubhumi.com\",\n      \"y\":9007\n    },{\n      \"name\":\"http://www.Bostonglobe.com\",\n      \"y\":8331\n    },{\n      \"name\":\"http://www.Usatoday.com\",\n      \"y\":8238\n    },{\n      \"name\":\"http://www.Thestar.com\",\n      \"y\":7966\n    },{\n      \"name\":\"http://www.Nypost.com\",\n      \"y\":7622\n    },{\n      \"name\":\"http://www.Youth.cn\",\n      \"y\":7301\n    },{\n      \"name\":\"http://www.Thehill.com\",\n      \"y\":6495\n    },{\n      \"name\":\"http://www.cnn.com\",\n      \"y\":6402\n    },{\n      \"name\":\"http://www.Nytimes.com\",\n      \"y\":6375\n    },{\n      \"name\":\"http://www.Livemint.com\",\n      \"y\":6092\n    },{\n      \"name\":\"http://www.Theaustralian.com.au\",\n      \"y\":6006\n    },{\n      \"name\":\"http://www.Chicagotribune.com\",\n      \"y\":5814\n    },{\n      \"name\":\"http://www.Nj.com\",\n      \"y\":5804\n    },{\n      \"name\":\"http://www.Stltoday.com\",\n      \"y\":5788\n    },{\n      \"name\":\"http://www.Deccanchronicle.com\",\n      \"y\":5758\n    },{\n      \"name\":\"http://www.Heraldsun.com.au\",\n      \"y\":5549\n    },{\n      \"name\":\"http://www.Oregonlive.com\",\n      \"y\":5526\n    },{\n      \"name\":\"http://www.Economictimes.indiatimes.com\",\n      \"y\":5201\n    },{\n      \"name\":\"http://www.chinadaily.com.cn\",\n      \"y\":5182\n    },{\n      \"name\":\"http://www.aftonbladet.se/\",\n      \"y\":5164\n    },{\n      \"name\":\"http://www.Ajc.com\",\n      \"y\":5068\n    },{\n      \"name\":\"http://www.China.com\",\n      \"y\":4947\n    },{\n      \"name\":\"http://www.dn.se/\",\n      \"y\":4947\n    },{\n      \"name\":\"http://www.bbc.com\",\n      \"y\":4482\n    },{\n      \"name\":\"http://www.Washingtonpost.com\",\n      \"y\":4427\n    },{\n      \"name\":\"http://www.Freep.com\",\n      \"y\":4247\n    },{\n      \"name\":\"http://www.Azcentral.com\",\n      \"y\":3909\n    },{\n      \"name\":\"http://www.Mercurynews.com\",\n      \"y\":3512\n    },{\n      \"name\":\"http://www.Latimes.com\",\n      \"y\":3485\n    },{\n      \"name\":\"http://www.Denverpost.com\",\n      \"y\":3382\n    },{\n      \"name\":\"http://www.Timesofindia.indiatimes.com\",\n      \"y\":3248\n    },{\n      \"name\":\"http://www.Washingtonexaminer.com\",\n      \"y\":2781\n    },{\n      \"name\":\"http://www.Philly.com\",\n      \"y\":2553\n    },{\n      \"name\":\"http://www.Miamiherald.com\",\n      \"y\":2546\n    },{\n      \"name\":\"http://www.Dallasnews.com\",\n      \"y\":2493\n    },{\n      \"name\":\"http://www.Nationalpost.com\",\n      \"y\":1881\n    },{\n      \"name\":\"http://www.Al.com\",\n      \"y\":1836\n    },{\n      \"name\":\"http://www.Kansascity.com\",\n      \"y\":1737\n    },{\n      \"name\":\"http://www.Indiatimes.com\",\n      \"y\":1695\n    },{\n      \"name\":\"http://www.Hollywoodreporter.com\",\n      \"y\":1655\n    },{\n      \"name\":\"https://www.economist.com/\",\n      \"y\":1460\n    },{\n      \"name\":\"http://www.Theglobeandmail.com\",\n      \"y\":1424\n    },{\n      \"name\":\"http://www.Financialexpress.com\",\n      \"y\":1392\n    },{\n      \"name\":\"http://www.deccanchronicle.com\",\n      \"y\":1066\n    },{\n      \"name\":\"http://www1.cbn.com/cbnnews\",\n      \"y\":922\n    },{\n      \"name\":\"http://www.Hindustantimes.com\",\n      \"y\":884\n    },{\n      \"name\":\"http://www.Sfgate.com\",\n      \"y\":257\n    },{\n      \"name\":\"http://www.Startribune.com\",\n      \"y\":255\n    },{\n      \"name\":\"http://www.Chron.com\",\n      \"y\":80\n    },{\n      \"name\":\"http://www.Dowjones.com\",\n      \"y\":27\n    },{\n      \"name\":\"http://www.Thehindu.com\",\n      \"y\":13\n    },{\n      \"name\":null,\n      \"y\":1\n    },{\n      \"name\":\"\",\n      \"y\":1\n    }]\n  }],\n  \"chart\":{\n    \"type\":\"column\"\n  },\n  \"plotOptions\":{\n    \"column\":{\n      \"groupPadding\":0,\n      \"pointPadding\":0,\n      \"borderWidth\":0\n    }\n  }\n}\n\n$(\"#highcharts_f0fb6a7c_d686_44ee_b7bf_b9857ef299a7\").highcharts(data)\n});\n\u003c/script\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509180571485_1183848870",
+      "id": "20171028-084931_143161519",
+      "dateCreated": "Oct 28, 2017 8:49:31 AM",
+      "dateStarted": "Oct 29, 2017 9:35:51 AM",
+      "dateFinished": "Oct 29, 2017 9:35:52 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "is_media_news",
+      "user": "anonymous",
+      "dateUpdated": "Oct 28, 2017 9:06:36 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1509181583732_412095127",
+      "id": "20171028-090623_2100587559",
+      "dateCreated": "Oct 28, 2017 9:06:23 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "df.printSchema",
+      "user": "anonymous",
+      "dateUpdated": "Oct 28, 2017 9:06:09 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- _corrupt_record: string (nullable \u003d true)\n |-- authors: array (nullable \u003d true)\n |    |-- element: string (containsNull \u003d true)\n |-- category: string (nullable \u003d true)\n |-- content_type: string (nullable \u003d true)\n |-- copyright: string (nullable \u003d true)\n |-- date: string (nullable \u003d true)\n |-- has_img: boolean (nullable \u003d true)\n |-- img: string (nullable \u003d true)\n |-- is_media_news: boolean (nullable \u003d true)\n |-- language: string (nullable \u003d true)\n |-- meta_lang: string (nullable \u003d true)\n |-- movies: array (nullable \u003d true)\n |    |-- element: string (containsNull \u003d true)\n |-- num_authors: long (nullable \u003d true)\n |-- num_keywords: long (nullable \u003d true)\n |-- num_movies: long (nullable \u003d true)\n |-- num_summary: long (nullable \u003d true)\n |-- num_title: long (nullable \u003d true)\n |-- num_words: long (nullable \u003d true)\n |-- publisher: string (nullable \u003d true)\n |-- url: string (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509181094359_1395223801",
+      "id": "20171028-085814_1991515338",
+      "dateCreated": "Oct 28, 2017 8:58:14 AM",
+      "dateStarted": "Oct 28, 2017 9:06:09 AM",
+      "dateFinished": "Oct 28, 2017 9:06:10 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1509181569950_-1199263915",
+      "id": "20171028-090609_1184146149",
+      "dateCreated": "Oct 28, 2017 9:06:09 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Knock News Data",
+  "id": "knock-news-data",
+  "angularObjects": {
+    "2CX85VMXR:shared_process": [],
+    "2CWX6QJKY:shared_process": [],
+    "2CWHJ33DC:shared_process": [],
+    "2CVV3Q7JH:shared_process": [],
+    "2CYVBVUU1:shared_process": [],
+    "2CZF6R5FX:shared_process": [],
+    "2CXBQRJDF:shared_process": [],
+    "2CZD5E1SG:shared_process": [],
+    "2CYUX3NZG:shared_process": [],
+    "2CW81SH24:shared_process": [],
+    "2CYS695DC:shared_process": [],
+    "2CYSD9PWB:shared_process": [],
+    "2CXV22KUU:shared_process": [],
+    "2CY1596M3:shared_process": [],
+    "2CX146UXN:shared_process": [],
+    "2CWM64BP7:shared_process": [],
+    "2CXVMERWV:shared_process": [],
+    "2CVRB9ABZ:shared_process": [],
+    "2CWMEV2TB:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
