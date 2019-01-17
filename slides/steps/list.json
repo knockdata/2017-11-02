@@ -14,48 +14,6 @@
         }
     },
     {
-        "uri": "thinkbig-consultant.html",
-        "id": "thinkbig-consultant",
-        "class": "step",
-        "data": {
-            "x": 4000,
-            "y": 0,
-            "z": 0,
-            "scale": 1,
-            "rotate-x": 0,
-            "rotate-y": 0,
-            "rotate-z": 90
-        }
-    },
-    {
-        "uri": "thinkbig-opensource.html",
-        "id": "thinkbig-opensource",
-        "class": "step",
-        "data": {
-            "x": 3700,
-            "y": 0,
-            "z": 0,
-            "scale": 1,
-            "rotate-x": 0,
-            "rotate-y": 0,
-            "rotate-z": 90
-        }
-    },
-    {
-        "uri": "thinkbig-expanding.html",
-        "id": "thinkbig-expanding",
-        "class": "step",
-        "data": {
-            "x": 3300,
-            "y": 0,
-            "z": 0,
-            "scale": 4,
-            "rotate-x": 0,
-            "rotate-y": 0,
-            "rotate-z": 90
-        }
-    },
-    {
         "uri": "agenda.html",
         "id": "agenda",
         "class": "step",

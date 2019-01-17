@@ -3,7 +3,7 @@
     {
       "text": "val inputRDD \u003d sc.textFile(\"/data/shakespeare.txt.gz\")",
       "user": "anonymous",
-      "dateUpdated": "Oct 30, 2017 9:35:23 PM",
+      "dateUpdated": "Nov 15, 2017 12:56:53 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -23,7 +23,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\ninputRDD: org.apache.spark.rdd.RDD[String] \u003d /data/shakespeare.txt.gz MapPartitionsRDD[3] at textFile at \u003cconsole\u003e:27\n"
+            "data": "\ninputRDD: org.apache.spark.rdd.RDD[String] \u003d /data/shakespeare.txt.gz MapPartitionsRDD[1] at textFile at \u003cconsole\u003e:27\n"
           }
         ]
       },
@@ -31,15 +31,15 @@
       "jobName": "paragraph_1509286502765_1492388051",
       "id": "20171029-141502_1023849037",
       "dateCreated": "Oct 29, 2017 2:15:02 PM",
-      "dateStarted": "Oct 30, 2017 9:35:23 PM",
-      "dateFinished": "Oct 30, 2017 9:35:23 PM",
+      "dateStarted": "Nov 15, 2017 12:56:53 PM",
+      "dateFinished": "Nov 15, 2017 12:57:08 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "val mapRDD \u003d inputRDD.flatMap(line \u003d\u003e line.split(\"\\\\P{L}+\"))",
       "user": "anonymous",
-      "dateUpdated": "Oct 30, 2017 9:35:29 PM",
+      "dateUpdated": "Nov 15, 2017 12:57:06 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -59,7 +59,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\nmapRDD: org.apache.spark.rdd.RDD[String] \u003d MapPartitionsRDD[4] at flatMap at \u003cconsole\u003e:29\n"
+            "data": "\nmapRDD: org.apache.spark.rdd.RDD[String] \u003d MapPartitionsRDD[2] at flatMap at \u003cconsole\u003e:29\n"
           }
         ]
       },
@@ -67,15 +67,15 @@
       "jobName": "paragraph_1509286470472_1997750536",
       "id": "20171029-141430_2001996370",
       "dateCreated": "Oct 29, 2017 2:14:30 PM",
-      "dateStarted": "Oct 30, 2017 9:35:30 PM",
-      "dateFinished": "Oct 30, 2017 9:35:30 PM",
+      "dateStarted": "Nov 15, 2017 12:57:06 PM",
+      "dateFinished": "Nov 15, 2017 12:57:08 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "val map2RDD \u003d mapRDD.map(word \u003d\u003e (word, 1))\nval wordCount \u003d map2RDD.reduceByKey((a, b) \u003d\u003e a + b)",
       "user": "anonymous",
-      "dateUpdated": "Oct 30, 2017 9:35:33 PM",
+      "dateUpdated": "Nov 15, 2017 12:57:18 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -103,15 +103,15 @@
       "jobName": "paragraph_1509286516554_-659512547",
       "id": "20171029-141516_913901296",
       "dateCreated": "Oct 29, 2017 2:15:16 PM",
-      "dateStarted": "Oct 30, 2017 9:35:33 PM",
-      "dateFinished": "Oct 30, 2017 9:35:34 PM",
+      "dateStarted": "Nov 15, 2017 12:57:18 PM",
+      "dateFinished": "Nov 15, 2017 12:57:19 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "wordCount.count",
       "user": "anonymous",
-      "dateUpdated": "Oct 30, 2017 9:35:55 PM",
+      "dateUpdated": "Nov 15, 2017 12:57:23 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -139,8 +139,8 @@
       "jobName": "paragraph_1509315809511_-231241867",
       "id": "20171029-222329_1737750476",
       "dateCreated": "Oct 29, 2017 10:23:29 PM",
-      "dateStarted": "Oct 30, 2017 9:35:55 PM",
-      "dateFinished": "Oct 30, 2017 9:35:57 PM",
+      "dateStarted": "Nov 15, 2017 12:57:23 PM",
+      "dateFinished": "Nov 15, 2017 12:57:25 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -270,25 +270,25 @@
   "name": "Big Data Hello World",
   "id": "big-data-hello-world",
   "angularObjects": {
-    "2CZFHSVWY:shared_process": [],
-    "2CX3PRM4E:shared_process": [],
-    "2CXZHRZ63:shared_process": [],
-    "2CYWZFK5K:shared_process": [],
-    "2CZCK6K16:shared_process": [],
-    "2CW7TW9ZY:shared_process": [],
-    "2CWJGUCGR:shared_process": [],
-    "2CXH6SABM:shared_process": [],
-    "2CYPXG8C1:shared_process": [],
-    "2CYWUSVMS:shared_process": [],
-    "2CYR4TF7C:shared_process": [],
-    "2CYGHA77X:shared_process": [],
-    "2CXFRMCFN:shared_process": [],
-    "2CXXS6SM3:shared_process": [],
-    "2CWF49RPF:shared_process": [],
-    "2CX1BCZ54:shared_process": [],
-    "2CWXS58V4:shared_process": [],
-    "2CXHVKQX6:shared_process": [],
-    "2CZ4VHSYJ:shared_process": []
+    "2CZ8SWAU6:shared_process": [],
+    "2D1R4Y6BY:shared_process": [],
+    "2CXJM31F2:shared_process": [],
+    "2CZX7CK1W:shared_process": [],
+    "2CX72AK5C:shared_process": [],
+    "2CZQV6WEJ:shared_process": [],
+    "2CXFGHQ8Y:shared_process": [],
+    "2CXE39B52:shared_process": [],
+    "2CZX6JKRN:shared_process": [],
+    "2CZYCWJAZ:shared_process": [],
+    "2CYHA7WC6:shared_process": [],
+    "2CY8T4DF7:shared_process": [],
+    "2CXCQS5A1:shared_process": [],
+    "2CYDBM6UR:shared_process": [],
+    "2CZ45XKTS:shared_process": [],
+    "2CX2N18KJ:shared_process": [],
+    "2D15WJ7P7:shared_process": [],
+    "2CYN8KYZ9:shared_process": [],
+    "2CXWNAY19:shared_process": []
   },
   "config": {},
   "info": {}
